@@ -56798,5 +56798,53 @@
     "delivery_days": 7,
     "status": "RECEIVED",
     "is_awarded": false
+  },
+  {
+    "id": "QUO-SUPP-0008-2026-003551",
+    "rfq_id": "RFQ-2026-001184",
+    "supplier_id": "SUP-000008",
+    "quote_date": "2026-11-10",
+    "valid_until": "2026-11-18",
+    "currency": "INR",
+    "subtotal": 73500.0,
+    "tax_amount": 0.0,
+    "shipping_cost": 0.0,
+    "other_cost": 0.0,
+    "total_landed_cost": 73500.0,
+    "delivery_days": 7,
+    "status": "RECEIVED",
+    "is_awarded": false
+  },
+  {
+    "id": "QUO-SUPP-0075-2026-003552",
+    "rfq_id": "RFQ-2026-001184",
+    "supplier_id": "SUP-000075",
+    "quote_date": "2026-11-10",
+    "valid_until": "2026-11-18",
+    "currency": "INR",
+    "subtotal": 72000.0,
+    "tax_amount": 0.0,
+    "shipping_cost": 0.0,
+    "other_cost": 0.0,
+    "total_landed_cost": 72000.0,
+    "delivery_days": 10,
+    "status": "AWARDED",
+    "is_awarded": true
+  },
+  {
+    "id": "QUO-SUPP-0098-2026-003553",
+    "rfq_id": "RFQ-2026-001184",
+    "supplier_id": "SUP-000098",
+    "quote_date": "2026-11-10",
+    "valid_until": "2026-11-18",
+    "currency": "INR",
+    "subtotal": 76000.0,
+    "tax_amount": 0.0,
+    "shipping_cost": 0.0,
+    "other_cost": 0.0,
+    "total_landed_cost": 76000.0,
+    "delivery_days": 5,
+    "status": "RECEIVED",
+    "is_awarded": false
   }
 ]

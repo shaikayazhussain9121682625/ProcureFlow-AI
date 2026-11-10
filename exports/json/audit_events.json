@@ -104443,5 +104443,82 @@
     "reason": "Supplier Varty, Chahal and Goyal 8 submitted quotation",
     "actor": "Procurement Admin",
     "occurred_at": "2026-11-10T12:26:32.960854"
+  },
+  {
+    "id": 9496,
+    "entity_type": "SupplierQuote",
+    "entity_id": "QUO-SUPP-0008-2026-003551",
+    "event_type": "QUOTE_SUBMITTED",
+    "old_value": null,
+    "new_value": "RECEIVED",
+    "reason": "Supplier Varty, Chahal and Goyal 8 submitted quotation",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T12:44:36.923111"
+  },
+  {
+    "id": 9497,
+    "entity_type": "SupplierQuote",
+    "entity_id": "QUO-SUPP-0075-2026-003552",
+    "event_type": "QUOTE_SUBMITTED",
+    "old_value": null,
+    "new_value": "RECEIVED",
+    "reason": "Supplier Kothari-Dada 75 submitted quotation",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T12:45:48.303533"
+  },
+  {
+    "id": 9498,
+    "entity_type": "SupplierQuote",
+    "entity_id": "QUO-SUPP-0098-2026-003553",
+    "event_type": "QUOTE_SUBMITTED",
+    "old_value": null,
+    "new_value": "RECEIVED",
+    "reason": "Supplier Bir Ltd 98 submitted quotation",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T12:46:17.682289"
+  },
+  {
+    "id": 9499,
+    "entity_type": "SupplierQuote",
+    "entity_id": "QUO-SUPP-0075-2026-003552",
+    "event_type": "SUPPLIER_AWARDED",
+    "old_value": "RECEIVED",
+    "new_value": "AWARDED",
+    "reason": "Lowest eligible total landed cost with acceptable delivery timeline.",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T12:57:35.585195"
+  },
+  {
+    "id": 9500,
+    "entity_type": "PurchaseOrder",
+    "entity_id": "PO-2026-001184",
+    "event_type": "PURCHASE_ORDER_CREATED",
+    "old_value": null,
+    "new_value": "ISSUED",
+    "reason": "Created from awarded quote QUO-SUPP-0075-2026-003552",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T12:57:35.585195"
+  },
+  {
+    "id": 9501,
+    "entity_type": "Delivery",
+    "entity_id": "DEL-2026-000001",
+    "event_type": "DELIVERY_CREATED",
+    "old_value": null,
+    "new_value": "PENDING",
+    "reason": "Delivery record created with purchase order",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T12:57:35.585195"
+  },
+  {
+    "id": 9502,
+    "entity_type": "PurchaseRequest",
+    "entity_id": "PR-2026-001201",
+    "event_type": "REQUEST_ORDERED",
+    "old_value": "RFQ_CREATED",
+    "new_value": "ORDERED",
+    "reason": "Purchase order PO-2026-001184 issued",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T12:57:35.585195"
   }
 ]

@@ -55974,5 +55974,29 @@
     "quantity": 1,
     "unit_price": 73000.0,
     "line_total": 73000.0
+  },
+  {
+    "id": "QTL-2026-0006998",
+    "quote_id": "QUO-SUPP-0008-2026-003551",
+    "request_line_id": "RL-2026-0002370",
+    "quantity": 1,
+    "unit_price": 73500.0,
+    "line_total": 73500.0
+  },
+  {
+    "id": "QTL-2026-0006999",
+    "quote_id": "QUO-SUPP-0075-2026-003552",
+    "request_line_id": "RL-2026-0002370",
+    "quantity": 1,
+    "unit_price": 72000.0,
+    "line_total": 72000.0
+  },
+  {
+    "id": "QTL-2026-0007000",
+    "quote_id": "QUO-SUPP-0098-2026-003553",
+    "request_line_id": "RL-2026-0002370",
+    "quantity": 1,
+    "unit_price": 76000.0,
+    "line_total": 76000.0
   }
 ]

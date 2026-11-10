@@ -11828,5 +11828,15 @@
     "received_quantity": 0,
     "status": "DELAYED",
     "notes": "Supplier delivery delayed; follow-up required."
+  },
+  {
+    "id": "DEL-2026-000001",
+    "po_id": "PO-2026-001184",
+    "delivery_date": "2026-11-10",
+    "expected_date": "2026-11-20",
+    "item_quantity": 1,
+    "received_quantity": 0,
+    "status": "PENDING",
+    "notes": "Delivery created automatically after PO award"
   }
 ]

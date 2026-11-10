@@ -95,7 +95,7 @@ def quotes():
         q.is_awarded
         FROM supplier_quotes q
         JOIN suppliers s ON s.id = q.supplier_id
-        ORDER BY q.rfq_id, q.total_landed_cost LIMIT 150
+        ORDER BY q.rowid DESC LIMIT 150
     """)
     open_rfqs = query("""
         SELECT r.id, r.request_id, r.closing_date

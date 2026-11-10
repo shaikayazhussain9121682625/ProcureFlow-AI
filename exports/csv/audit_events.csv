@@ -9494,3 +9494,10 @@ id,entity_type,entity_id,event_type,old_value,new_value,reason,actor,occurred_at
 9493,RFQ,RFQ-2026-001184,RFQ_CREATED,,OPEN,Three active suppliers invited,Procurement Admin,2026-11-10T12:22:18.426743
 9494,PurchaseRequest,PR-2026-001201,REQUEST_CONVERTED_TO_RFQ,APPROVED,RFQ_CREATED,RFQ created,Procurement Admin,2026-11-10T12:22:18.426743
 9495,SupplierQuote,QUO-SUPP-0008-2026-003550,QUOTE_SUBMITTED,,RECEIVED,"Supplier Varty, Chahal and Goyal 8 submitted quotation",Procurement Admin,2026-11-10T12:26:32.960854
+9496,SupplierQuote,QUO-SUPP-0008-2026-003551,QUOTE_SUBMITTED,,RECEIVED,"Supplier Varty, Chahal and Goyal 8 submitted quotation",Procurement Admin,2026-11-10T12:44:36.923111
+9497,SupplierQuote,QUO-SUPP-0075-2026-003552,QUOTE_SUBMITTED,,RECEIVED,Supplier Kothari-Dada 75 submitted quotation,Procurement Admin,2026-11-10T12:45:48.303533
+9498,SupplierQuote,QUO-SUPP-0098-2026-003553,QUOTE_SUBMITTED,,RECEIVED,Supplier Bir Ltd 98 submitted quotation,Procurement Admin,2026-11-10T12:46:17.682289
+9499,SupplierQuote,QUO-SUPP-0075-2026-003552,SUPPLIER_AWARDED,RECEIVED,AWARDED,Lowest eligible total landed cost with acceptable delivery timeline.,Procurement Admin,2026-11-10T12:57:35.585195
+9500,PurchaseOrder,PO-2026-001184,PURCHASE_ORDER_CREATED,,ISSUED,Created from awarded quote QUO-SUPP-0075-2026-003552,Procurement Admin,2026-11-10T12:57:35.585195
+9501,Delivery,DEL-2026-000001,DELIVERY_CREATED,,PENDING,Delivery record created with purchase order,Procurement Admin,2026-11-10T12:57:35.585195
+9502,PurchaseRequest,PR-2026-001201,REQUEST_ORDERED,RFQ_CREATED,ORDERED,Purchase order PO-2026-001184 issued,Procurement Admin,2026-11-10T12:57:35.585195

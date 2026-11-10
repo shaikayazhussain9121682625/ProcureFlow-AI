@@ -20986,5 +20986,14 @@
     "quantity": 3,
     "unit_price": 8133.88,
     "line_total": 24401.64
+  },
+  {
+    "id": "POL-2026-0002333",
+    "po_id": "PO-2026-001184",
+    "quote_line_id": "QTL-2026-0006999",
+    "item_name": "Laptop Computers",
+    "quantity": 1,
+    "unit_price": 72000.0,
+    "line_total": 72000.0
   }
 ]

@@ -17743,5 +17743,20 @@
     "status": "ACKNOWLEDGED",
     "award_rationale": "Selected the lowest total landed cost among eligible quotes valid at RFQ closing. Delivery time and supplier risk were tie-breakers. Supplier risk: MEDIUM (34/100); delivery: 7 days.",
     "issued_without_approval": false
+  },
+  {
+    "id": "PO-2026-001184",
+    "request_id": "PR-2026-001201",
+    "quote_id": "QUO-SUPP-0075-2026-003552",
+    "supplier_id": "SUP-000075",
+    "po_date": "2026-11-10",
+    "currency": "INR",
+    "subtotal": 72000.0,
+    "tax_amount": 0.0,
+    "shipping_cost": 0.0,
+    "total_amount": 72000.0,
+    "status": "ISSUED",
+    "award_rationale": "Lowest eligible total landed cost with acceptable delivery timeline.",
+    "issued_without_approval": false
   }
 ]
