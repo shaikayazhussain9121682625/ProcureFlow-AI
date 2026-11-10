@@ -1342,6 +1342,9 @@ INSERT INTO "approvals" VALUES('APR-2026-001303','PR-2026-000642','Department Ma
 INSERT INTO "approvals" VALUES('APR-2026-001304','PR-2026-001000','Department Manager - Synthetic','Department Manager',1,'APPROVED',50000,'Approved under configured procurement approval policy and available budget.','2026-11-09 00:00:00.000000');
 INSERT INTO "approvals" VALUES('APR-2026-001305','PR-2026-001111','Department Manager - Synthetic','Department Manager',1,'APPROVED',50000,'Approved under configured procurement approval policy and available budget.','2026-11-09 00:00:00.000000');
 INSERT INTO "approvals" VALUES('APR-2026-001306','PR-2026-000158','Department Manager - Synthetic','Department Manager',1,'APPROVED',50000,'Approved under configured procurement approval policy and available budget.','2026-11-10 00:00:00.000000');
+INSERT INTO "approvals" VALUES('APR-2026-001307','PR-2026-001201','Procurement Admin','Department Manager',1,'APPROVED',74999.86,'APPROVED through ProcureFlow AI','2026-11-10 12:13:14.756945');
+INSERT INTO "approvals" VALUES('APR-2026-001308','PR-2026-001201','Procurement Admin','Department Head',2,'APPROVED',74999.86,'APPROVED through ProcureFlow AI','2026-11-10 12:13:14.756945');
+INSERT INTO "approvals" VALUES('APR-2026-001309','PR-2026-001202','Procurement Admin','Department Manager',1,'REJECTED',74999.86,'REJECTED through ProcureFlow AI','2026-11-10 12:13:18.865743');
 CREATE TABLE audit_events (
 	id INTEGER NOT NULL, 
 	entity_type VARCHAR(50) NOT NULL, 
@@ -10842,6 +10845,13 @@ INSERT INTO "audit_events" VALUES(9485,'AnomalyRecord','4','ANOMALY_LABEL_CREATE
 INSERT INTO "audit_events" VALUES(9486,'AnomalyRecord','5','ANOMALY_LABEL_CREATED',NULL,'BUDGET_OVERRUN','Purchase amount exceeds available budget.','Data Quality System','2026-11-10 05:43:24.205320');
 INSERT INTO "audit_events" VALUES(9487,'AnomalyRecord','6','ANOMALY_LABEL_CREATED',NULL,'DUPLICATE_REQUEST','Potential duplicate purchase request detected.','Data Quality System','2026-11-10 05:43:24.205320');
 INSERT INTO "audit_events" VALUES(9488,'AnomalyRecord','7','ANOMALY_LABEL_CREATED',NULL,'QUOTE_CURRENCY_MISMATCH','Supplier quote currency does not match purchase request currency.','Data Quality System','2026-11-10 05:43:24.205320');
+INSERT INTO "audit_events" VALUES(9489,'PurchaseRequest','PR-2026-001201','REQUEST_SUBMITTED',NULL,'SUBMITTED','Submitted through ProcureFlow AI interface','Dhruv Chokshi','2026-11-10 06:36:08.371189');
+INSERT INTO "audit_events" VALUES(9490,'PurchaseRequest','PR-2026-001202','REQUEST_SUBMITTED',NULL,'SUBMITTED','Submitted through ProcureFlow AI interface','Dhruv Chokshi','2026-11-10 06:40:09.007572');
+INSERT INTO "audit_events" VALUES(9491,'PurchaseRequest','PR-2026-001201','REQUEST_APPROVED','SUBMITTED','APPROVED','Decision recorded through application','Procurement Admin','2026-11-10 06:43:14.761951');
+INSERT INTO "audit_events" VALUES(9492,'PurchaseRequest','PR-2026-001202','REQUEST_REJECTED','SUBMITTED','REJECTED','Decision recorded through application','Procurement Admin','2026-11-10 06:43:18.868749');
+INSERT INTO "audit_events" VALUES(9493,'RFQ','RFQ-2026-001184','RFQ_CREATED',NULL,'OPEN','Three active suppliers invited','Procurement Admin','2026-11-10 12:22:18.426743');
+INSERT INTO "audit_events" VALUES(9494,'PurchaseRequest','PR-2026-001201','REQUEST_CONVERTED_TO_RFQ','APPROVED','RFQ_CREATED','RFQ created','Procurement Admin','2026-11-10 12:22:18.426743');
+INSERT INTO "audit_events" VALUES(9495,'SupplierQuote','QUO-SUPP-0008-2026-003550','QUOTE_SUBMITTED',NULL,'RECEIVED','Supplier Varty, Chahal and Goyal 8 submitted quotation','Procurement Admin','2026-11-10 12:26:32.960854');
 CREATE TABLE budgets (
 	id VARCHAR(30) NOT NULL, 
 	department_id VARCHAR(30) NOT NULL, 
@@ -10885,7 +10895,7 @@ INSERT INTO "budgets" VALUES('BUD-DEP-005-02','DEP-005',2026,'Software',1408046,
 INSERT INTO "budgets" VALUES('BUD-DEP-005-03','DEP-005',2026,'Office Supplies',1733510,789941.76,0,'2026-10-14','2027-10-04','ACTIVE');
 INSERT INTO "budgets" VALUES('BUD-DEP-005-04','DEP-005',2026,'Marketing',719880,715544.67,0,'2026-06-17','2027-09-22','ACTIVE');
 INSERT INTO "budgets" VALUES('BUD-DEP-005-05','DEP-005',2026,'Travel',1302992,765742.9,0,'2026-09-10','2027-10-08','ACTIVE');
-INSERT INTO "budgets" VALUES('BUD-DEP-006-01','DEP-006',2026,'IT Equipment',968733,375845.9,0,'2026-03-16','2027-09-25','ACTIVE');
+INSERT INTO "budgets" VALUES('BUD-DEP-006-01','DEP-006',2026,'IT Equipment',968733,450845.76,0,'2026-03-16','2027-09-25','ACTIVE');
 INSERT INTO "budgets" VALUES('BUD-DEP-006-02','DEP-006',2026,'Software',1555227,606150.08,0,'2026-06-17','2027-10-03','ACTIVE');
 INSERT INTO "budgets" VALUES('BUD-DEP-006-03','DEP-006',2026,'Office Supplies',1351453,346034.17,0,'2026-06-30','2027-09-27','ACTIVE');
 INSERT INTO "budgets" VALUES('BUD-DEP-006-04','DEP-006',2026,'Marketing',1322020,444662.68,0,'2025-11-28','2027-10-08','ACTIVE');
@@ -16901,6 +16911,8 @@ INSERT INTO "purchase_requests" VALUES('PR-2026-001197','REQTR-000284','DEP-009'
 INSERT INTO "purchase_requests" VALUES('PR-2026-001198','REQTR-000047','DEP-009','BUD-DEP-009-01','2026-03-01','2026-04-30','IT Equipment',29473.09,'INR','Rem officiis optio repellendus voluptatum nulla reiciendis repellendus nostrum sapiente odio adipisci rerum ullam quae voluptates.','ORDERED',NULL,'2026-03-01 00:00:00.000000');
 INSERT INTO "purchase_requests" VALUES('PR-2026-001199','REQTR-000095','DEP-010','BUD-DEP-010-03','2026-06-07','2026-06-23','Office Supplies',35114.85,'INR','Quidem accusantium quos magni corrupti sed consequatur eius aspernatur.','ORDERED',NULL,'2026-06-07 00:00:00.000000');
 INSERT INTO "purchase_requests" VALUES('PR-2026-001200','REQTR-000030','DEP-004','BUD-DEP-004-01','2026-05-10','2026-06-27','IT Equipment',6603.95,'INR','Ad nihil a similique temporibus ad cumque excepturi ipsum.','ORDERED',NULL,'2026-05-10 00:00:00.000000');
+INSERT INTO "purchase_requests" VALUES('PR-2026-001201','REQTR-000001','DEP-006','BUD-DEP-006-01','2026-11-10','2026-11-30','IT Equipment',74999.86,'INR','Purchase 5 laptops for newly recruited employees in the IT department to support daily development and operational activities.','RFQ_CREATED',NULL,'2026-11-10 06:36:08.376056');
+INSERT INTO "purchase_requests" VALUES('PR-2026-001202','REQTR-000001','DEP-006','BUD-DEP-006-01','2026-11-10','2026-11-30','IT Equipment',74999.86,'INR','simply','REJECTED',NULL,'2026-11-10 06:40:09.011337');
 CREATE TABLE request_lines (
 	id VARCHAR(30) NOT NULL, 
 	request_id VARCHAR(30) NOT NULL, 
@@ -19286,6 +19298,8 @@ INSERT INTO "request_lines" VALUES('RL-2026-002366','PR-2026-001198','Printer','
 INSERT INTO "request_lines" VALUES('RL-2026-002367','PR-2026-001198','Monitor','Iste explicabo labore delectus placeat debitis quidem.','IT Equipment',4,'pieces',5505.41,22021.64);
 INSERT INTO "request_lines" VALUES('RL-2026-002368','PR-2026-001199','Pens','Eos quod expedita quae minima cupiditate.','Office Supplies',5,'pieces',7022.97,35114.85);
 INSERT INTO "request_lines" VALUES('RL-2026-002369','PR-2026-001200','Keyboard','Quod culpa aspernatur.','IT Equipment',1,'pieces',6603.95,6603.95);
+INSERT INTO "request_lines" VALUES('RL-2026-0002370','PR-2026-001201','Laptop Computers','Purchase 5 laptops for newly recruited employees in the IT department to support daily development and operational activities.','IT Equipment',1,'unit',74999.86,74999.86);
+INSERT INTO "request_lines" VALUES('RL-2026-0002371','PR-2026-001202','Laptop Computers','simply','IT Equipment',1,'unit',74999.86,74999.86);
 CREATE TABLE requesters (
 	id VARCHAR(30) NOT NULL, 
 	employee_code VARCHAR(30) NOT NULL, 
@@ -23159,6 +23173,9 @@ INSERT INTO "rfq_suppliers" VALUES(3546,'RFQ-2026-001182','SUP-000071','2026-11-
 INSERT INTO "rfq_suppliers" VALUES(3547,'RFQ-2026-001183','SUP-000109','2026-11-10 05:32:15.309690','RESPONDED');
 INSERT INTO "rfq_suppliers" VALUES(3548,'RFQ-2026-001183','SUP-000090','2026-11-10 05:32:15.309690','RESPONDED');
 INSERT INTO "rfq_suppliers" VALUES(3549,'RFQ-2026-001183','SUP-000079','2026-11-10 05:32:15.309690','RESPONDED');
+INSERT INTO "rfq_suppliers" VALUES(3550,'RFQ-2026-001184','SUP-000008','2026-11-10 12:22:18.426743','QUOTED');
+INSERT INTO "rfq_suppliers" VALUES(3551,'RFQ-2026-001184','SUP-000075','2026-11-10 12:22:18.426743','INVITED');
+INSERT INTO "rfq_suppliers" VALUES(3552,'RFQ-2026-001184','SUP-000098','2026-11-10 12:22:18.426743','INVITED');
 CREATE TABLE rfqs (
 	id VARCHAR(30) NOT NULL, 
 	request_id VARCHAR(30) NOT NULL, 
@@ -24354,6 +24371,7 @@ INSERT INTO "rfqs" VALUES('RFQ-2026-001180','PR-2026-001197','2026-08-11','2026-
 INSERT INTO "rfqs" VALUES('RFQ-2026-001181','PR-2026-001198','2026-03-01','2026-03-08','AWARDED',1,NULL);
 INSERT INTO "rfqs" VALUES('RFQ-2026-001182','PR-2026-001199','2026-06-07','2026-06-14','AWARDED',1,NULL);
 INSERT INTO "rfqs" VALUES('RFQ-2026-001183','PR-2026-001200','2026-05-10','2026-05-17','AWARDED',1,NULL);
+INSERT INTO "rfqs" VALUES('RFQ-2026-001184','PR-2026-001201','2026-11-10','2026-11-17','OPEN',1,NULL);
 CREATE TABLE supplier_quote_lines (
 	id VARCHAR(40) NOT NULL, 
 	quote_id VARCHAR(60) NOT NULL, 
@@ -31364,6 +31382,7 @@ INSERT INTO "supplier_quote_lines" VALUES('QL-2026-0006993','QUO-SUPP-0071-2026-
 INSERT INTO "supplier_quote_lines" VALUES('QL-2026-0006994','QUO-SUPP-0109-2026-003547','RL-2026-002369',1,6693.66,6693.66);
 INSERT INTO "supplier_quote_lines" VALUES('QL-2026-0006995','QUO-SUPP-0090-2026-003548','RL-2026-002369',1,6450.97,6450.97);
 INSERT INTO "supplier_quote_lines" VALUES('QL-2026-0006996','QUO-SUPP-0079-2026-003549','RL-2026-002369',1,6039.71,6039.71);
+INSERT INTO "supplier_quote_lines" VALUES('QTL-2026-0006997','QUO-SUPP-0008-2026-003550','RL-2026-0002370',1,73000,73000);
 CREATE TABLE supplier_quotes (
 	id VARCHAR(60) NOT NULL, 
 	rfq_id VARCHAR(30) NOT NULL, 
@@ -34939,6 +34958,7 @@ INSERT INTO "supplier_quotes" VALUES('QUO-SUPP-0071-2026-003546','RFQ-2026-00118
 INSERT INTO "supplier_quotes" VALUES('QUO-SUPP-0109-2026-003547','RFQ-2026-001183','SUP-000109','2026-05-12','2026-06-11','INR',6693.66,1204.86,250,0,8148.52,13,'RECEIVED',0);
 INSERT INTO "supplier_quotes" VALUES('QUO-SUPP-0090-2026-003548','RFQ-2026-001183','SUP-000090','2026-05-15','2026-06-14','INR',6450.97,1161.17,0,0,7612.14,7,'AWARDED',1);
 INSERT INTO "supplier_quotes" VALUES('QUO-SUPP-0079-2026-003549','RFQ-2026-001183','SUP-000079','2026-05-12','2026-06-11','INR',6039.71,1087.15,500,0,7626.86,4,'RECEIVED',0);
+INSERT INTO "supplier_quotes" VALUES('QUO-SUPP-0008-2026-003550','RFQ-2026-001184','SUP-000008','2026-11-10','2026-11-18','INR',73000,0,0,0,73000,7,'RECEIVED',0);
 CREATE TABLE suppliers (
 	id VARCHAR(30) NOT NULL, 
 	supplier_code VARCHAR(30) NOT NULL, 

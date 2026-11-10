@@ -1,7 +1,29 @@
-﻿{% extends "base.html" %}
-{% block title %}RFQs | ProcureFlow AI{% endblock %}
-{% block breadcrumb %}RFQs{% endblock %}
+{% extends "base.html" %}
+{% block title %}RFQ Management | ProcureFlow AI{% endblock %}
+{% block breadcrumb %}RFQ Management{% endblock %}
 {% block content %}
-<div class="page-heading"><div><div class="eyebrow">SOURCING</div><h1>Request for Quotations</h1><p>Supplier invitations and quotation response tracking.</p></div><span class="primary-button">{{ total }} RFQs</span></div>
-<div class="panel table-panel"><div class="panel-heading"><div><h2>RFQ register</h2><p>Latest 100 RFQs with supplier response counts</p></div></div><div class="table-wrap"><table><thead><tr><th>RFQ ID</th><th>REQUEST ID</th><th>CREATED</th><th>CLOSING</th><th>INVITED</th><th>QUOTES</th><th>STATUS</th></tr></thead><tbody>{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.request_id }}</td><td>{{ r.created_date }}</td><td>{{ r.closing_date }}</td><td>{{ r.invited_suppliers }}</td><td>{{ r.received_quotes }}</td><td>{{ r.status }}</td></tr>{% else %}<tr><td colspan="7">No RFQs found.</td></tr>{% endfor %}</tbody></table></div></div>
+<style>
+.wf-card{background:#fff;border:1px solid #e5eaf2;border-radius:14px;padding:23px;margin-bottom:22px}
+.wf-card h2{font-size:19px;color:#1c2b45;margin:0 0 7px}
+.wf-sub{color:#78869c;font-size:13px;margin:0 0 18px}
+.wf-btn{border:0;border-radius:8px;padding:10px 15px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.wf-primary{background:#4169e1;color:white}.wf-green{background:#e8f7ee;color:#187342}
+.wf-input{padding:9px;border:1px solid #dce3ee;border-radius:8px;width:100%;max-width:230px}
+.wf-tag{padding:5px 9px;border-radius:20px;background:#edf2ff;color:#3156c5;font-size:12px;font-weight:700}
+</style>
+<div class="page-heading"><div><div class="eyebrow">SOURCING WORKSPACE</div><h1>RFQ Management</h1><p>Create requests for quotation and invite suppliers.</p></div><span class="wf-tag">{{ total }} RFQs</span></div>
+
+<div class="wf-card">
+<h2>Approved requests ready for RFQ</h2><p class="wf-sub">Create an RFQ and automatically invite three active suppliers.</p>
+<div class="table-wrap"><table><thead><tr><th>REQUEST</th><th>CATEGORY</th><th>ESTIMATED VALUE</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody>
+{% for r in eligible_requests %}
+<tr><td>{{ r.id }}</td><td>{{ r.category }}</td><td>{{ r.currency }} {{ "{:,.2f}".format(r.estimated_cost or 0) }}</td><td>{{ r.status }}</td><td><form method="POST" action="{{ url_for('create_rfq', request_id=r.id) }}" onsubmit="return confirm('Create RFQ and invite three suppliers?')"><button class="wf-btn wf-primary">Create RFQ + Invite suppliers</button></form></td></tr>
+{% else %}<tr><td colspan="5">No approved requests are currently waiting for an RFQ.</td></tr>{% endfor %}
+</tbody></table></div></div>
+
+<div class="wf-card"><h2>RFQ register</h2><p class="wf-sub">RFQs, invited suppliers and quotations received.</p>
+<div class="table-wrap"><table><thead><tr><th>RFQ ID</th><th>REQUEST ID</th><th>CREATED</th><th>CLOSING</th><th>SUPPLIERS</th><th>QUOTES</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody>
+{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.request_id }}</td><td>{{ r.created_date }}</td><td>{{ r.closing_date }}</td><td>{{ r.invited_suppliers }}</td><td>{{ r.received_quotes }}</td><td>{{ r.status }}</td><td>{% if r.status == 'OPEN' %}<a class="wf-btn wf-green" href="{{ url_for('submit_supplier_quote', rfq_id=r.id) }}">Submit supplier quote</a>{% else %}?{% endif %}</td></tr>
+{% else %}<tr><td colspan="8">No RFQs found.</td></tr>{% endfor %}
+</tbody></table></div><div class="table-note">Showing up to 100 of {{ total }} RFQs.</div></div>
 {% endblock %}

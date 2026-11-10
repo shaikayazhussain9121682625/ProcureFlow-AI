@@ -104366,5 +104366,82 @@
     "reason": "Supplier quote currency does not match purchase request currency.",
     "actor": "Data Quality System",
     "occurred_at": "2026-11-10T05:43:24.205320"
+  },
+  {
+    "id": 9489,
+    "entity_type": "PurchaseRequest",
+    "entity_id": "PR-2026-001201",
+    "event_type": "REQUEST_SUBMITTED",
+    "old_value": null,
+    "new_value": "SUBMITTED",
+    "reason": "Submitted through ProcureFlow AI interface",
+    "actor": "Dhruv Chokshi",
+    "occurred_at": "2026-11-10T06:36:08.371189"
+  },
+  {
+    "id": 9490,
+    "entity_type": "PurchaseRequest",
+    "entity_id": "PR-2026-001202",
+    "event_type": "REQUEST_SUBMITTED",
+    "old_value": null,
+    "new_value": "SUBMITTED",
+    "reason": "Submitted through ProcureFlow AI interface",
+    "actor": "Dhruv Chokshi",
+    "occurred_at": "2026-11-10T06:40:09.007572"
+  },
+  {
+    "id": 9491,
+    "entity_type": "PurchaseRequest",
+    "entity_id": "PR-2026-001201",
+    "event_type": "REQUEST_APPROVED",
+    "old_value": "SUBMITTED",
+    "new_value": "APPROVED",
+    "reason": "Decision recorded through application",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T06:43:14.761951"
+  },
+  {
+    "id": 9492,
+    "entity_type": "PurchaseRequest",
+    "entity_id": "PR-2026-001202",
+    "event_type": "REQUEST_REJECTED",
+    "old_value": "SUBMITTED",
+    "new_value": "REJECTED",
+    "reason": "Decision recorded through application",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T06:43:18.868749"
+  },
+  {
+    "id": 9493,
+    "entity_type": "RFQ",
+    "entity_id": "RFQ-2026-001184",
+    "event_type": "RFQ_CREATED",
+    "old_value": null,
+    "new_value": "OPEN",
+    "reason": "Three active suppliers invited",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T12:22:18.426743"
+  },
+  {
+    "id": 9494,
+    "entity_type": "PurchaseRequest",
+    "entity_id": "PR-2026-001201",
+    "event_type": "REQUEST_CONVERTED_TO_RFQ",
+    "old_value": "APPROVED",
+    "new_value": "RFQ_CREATED",
+    "reason": "RFQ created",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T12:22:18.426743"
+  },
+  {
+    "id": 9495,
+    "entity_type": "SupplierQuote",
+    "entity_id": "QUO-SUPP-0008-2026-003550",
+    "event_type": "QUOTE_SUBMITTED",
+    "old_value": null,
+    "new_value": "RECEIVED",
+    "reason": "Supplier Varty, Chahal and Goyal 8 submitted quotation",
+    "actor": "Procurement Admin",
+    "occurred_at": "2026-11-10T12:26:32.960854"
   }
 ]

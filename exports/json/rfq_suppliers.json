@@ -24841,5 +24841,26 @@
     "supplier_id": "SUP-000079",
     "invited_at": "2026-11-10T05:32:15.309690",
     "response_status": "RESPONDED"
+  },
+  {
+    "id": 3550,
+    "rfq_id": "RFQ-2026-001184",
+    "supplier_id": "SUP-000008",
+    "invited_at": "2026-11-10T12:22:18.426743",
+    "response_status": "QUOTED"
+  },
+  {
+    "id": 3551,
+    "rfq_id": "RFQ-2026-001184",
+    "supplier_id": "SUP-000075",
+    "invited_at": "2026-11-10T12:22:18.426743",
+    "response_status": "INVITED"
+  },
+  {
+    "id": 3552,
+    "rfq_id": "RFQ-2026-001184",
+    "supplier_id": "SUP-000098",
+    "invited_at": "2026-11-10T12:22:18.426743",
+    "response_status": "INVITED"
   }
 ]

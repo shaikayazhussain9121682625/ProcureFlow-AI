@@ -1,0 +1,146 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<style>
+.request-page{max-width:1100px;margin:0 auto}
+.request-heading{margin-bottom:26px}
+.request-heading .eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;color:#4169e1;text-transform:uppercase}
+.request-heading h1{font-size:30px;color:#17233c;margin:9px 0}
+.request-heading p{color:#71809a;margin:0}
+.request-card{background:#fff;border:1px solid #e6ebf3;border-radius:16px;padding:30px;box-shadow:0 8px 28px rgba(20,40,80,.06)}
+.request-section-title{font-size:16px;font-weight:700;color:#253451;margin:0 0 20px}
+.request-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.request-field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.request-field.full{grid-column:1/-1}
+.request-field label{font-size:13px;font-weight:600;color:#40516d}
+.request-field input,.request-field select,.request-field textarea{width:100%;box-sizing:border-box;border:1px solid #dce3ee;border-radius:9px;padding:12px 14px;background:#fff;color:#26344d;font-size:14px;outline:none;min-height:45px}
+.request-field textarea{min-height:105px;resize:vertical}
+.request-field input:focus,.request-field select:focus,.request-field textarea:focus{border-color:#5278ed;box-shadow:0 0 0 3px rgba(82,120,237,.12)}
+.request-hint{font-size:12px;color:#8995a8}
+.request-actions{display:flex;justify-content:flex-end;gap:12px;margin-top:28px;padding-top:22px;border-top:1px solid #edf0f5}
+.request-btn{border:0;border-radius:9px;padding:13px 22px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.request-btn.primary{background:#4169e1;color:white}
+.request-btn.primary:hover{background:#3156c5}
+.request-btn.secondary{background:#f0f3f8;color:#465570}
+@media(max-width:700px){.request-grid{grid-template-columns:1fr}.request-field.full{grid-column:auto}.request-card{padding:20px}.request-heading h1{font-size:25px}}
+</style>
+
+<div class="request-page">
+  <div class="request-heading">
+    <div class="eyebrow">Procurement workspace</div>
+    <h1>Create Purchase Request</h1>
+    <p>Enter the purchase details below to submit a request for budget validation and approval.</p>
+  </div>
+
+  <form class="request-card" method="POST" action="{{ url_for('create_request') }}">
+<h2 class="request-section-title">Request information</h2>
+    <div class="request-grid">
+      <div class="request-field">
+        <label for="requester_id">Requester *</label>
+        <select id="requester_id" name="requester_id" required>
+      <option value="">Select requester</option>
+      {% for person in requesters %}
+      <option value="{{ person.id }}" data-department="{{ person.department_id }}">
+        {{ person.name }} ? {{ person.department_id }}
+      </option>
+      {% endfor %}
+    </select>
+      </div>
+
+      <div class="request-field">
+        <label for="budget_id">Budget *</label>
+        <select id="budget_id" name="budget_id" required>
+      <option value="">Select matching budget</option>
+      {% for budget in budgets %}
+      <option value="{{ budget.id }}"
+              data-department="{{ budget.department_id }}"
+              data-category="{{ budget.category }}">
+        {{ budget.department_id }} ? {{ budget.category }}
+      </option>
+      {% endfor %}
+    </select>
+        <span class="request-hint">Choose a budget belonging to the requester's department.</span>
+      </div>
+
+      <div class="request-field">
+        <label for="category">Purchase category *</label>
+        <select id="category" name="category" required>
+          {% for category in categories %}
+          <option value="{{ category }}">{{ category }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="request-field">
+        <label for="item_name">Item or service name *</label>
+        <input id="item_name" name="item_name" placeholder="e.g. Laptop computers" required>
+      </div>
+
+      <div class="request-field">
+        <label for="quantity">Quantity *</label>
+        <input id="quantity" name="quantity" type="number" min="1" value="1" required>
+      </div>
+
+      <div class="request-field">
+        <label for="estimated_cost">Total estimated cost (INR) *</label>
+        <input id="estimated_cost" name="estimated_cost" type="number" min="0.01" step="0.01" placeholder="e.g. 75000" required>
+      </div>
+
+      <div class="request-field">
+        <label for="required_date">Required delivery date *</label>
+        <input id="required_date" name="required_date" type="date" required>
+      </div>
+
+      <div class="request-field full">
+        <label for="purpose">Business justification *</label>
+        <textarea id="purpose" name="purpose" placeholder="Explain why this purchase is required..." required></textarea>
+      </div>
+    </div>
+
+    <div class="request-actions">
+      <a class="request-btn secondary" href="{{ url_for('requests') }}">Cancel</a>
+      <button class="request-btn primary" type="submit">Submit purchase request</button>
+    </div>
+  </form>
+</div>
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const requester = document.getElementById("requester_id");
+    const budget = document.getElementById("budget_id");
+    const category = document.getElementById("category");
+
+    if (!requester || !budget || !category) return;
+
+    const allBudgets = Array.from(budget.querySelectorAll("option"))
+        .filter(option => option.value !== "")
+        .map(option => option.cloneNode(true));
+
+    function updateBudgets() {
+        const selectedRequester = requester.options[requester.selectedIndex];
+        const department = selectedRequester?.dataset.department || "";
+        const selectedCategory = category.value;
+
+        budget.innerHTML = '<option value="">Select matching budget</option>';
+
+        allBudgets.forEach(option => {
+            if (option.dataset.department === department &&
+                option.dataset.category === selectedCategory) {
+                budget.appendChild(option.cloneNode(true));
+            }
+        });
+
+        if (budget.options.length === 1) {
+            budget.options[0].textContent = "No matching budget available";
+        }
+    }
+
+    requester.addEventListener("change", updateBudgets);
+    category.addEventListener("change", updateBudgets);
+    updateBudgets();
+});
+</script>
+\n{% endblock %}
+

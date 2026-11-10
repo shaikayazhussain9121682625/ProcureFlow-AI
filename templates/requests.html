@@ -1,9 +1,64 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 {% block title %}Purchase Requests | ProcureFlow AI{% endblock %}
 {% block breadcrumb %}Purchase Requests{% endblock %}
 {% block content %}
-<div class="page-heading"><div><div class="eyebrow">PROCUREMENT</div><h1>Purchase Requests</h1><p>Live purchase request register.</p></div><span class="primary-button">{{ total }} total requests</span></div>
-<div class="panel table-panel"><div class="panel-heading"><div><h2>Request register</h2><p>Latest 100 database records</p></div></div><div class="table-wrap"><table><thead><tr><th>REQUEST ID</th><th>DEPARTMENT</th><th>CATEGORY</th><th>ESTIMATED COST</th><th>DATE</th><th>STATUS</th></tr></thead><tbody>
-{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.department_id }}</td><td>{{ r.category }}</td><td>{{ r.currency }} {{ "{:,.2f}".format(r.estimated_cost or 0) }}</td><td>{{ r.request_date }}</td><td><span class="status status-blue">{{ r.status }}</span></td></tr>{% else %}<tr><td colspan="6">No requests found.</td></tr>{% endfor %}
-</tbody></table></div><div class="table-note">Showing up to 100 of {{ total }} purchase requests.</div></div>
+<style>
+.request-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+.request-toolbar h1{margin:5px 0 8px;color:#17233c;font-size:29px}
+.request-toolbar p{margin:0;color:#71809a}
+.create-request-btn{display:inline-flex;align-items:center;gap:9px;background:#4169e1;color:#fff!important;text-decoration:none;padding:13px 19px;border-radius:9px;font-weight:700;font-size:14px;box-shadow:0 5px 14px rgba(65,105,225,.18)}
+.create-request-btn:hover{background:#3156c5}
+.request-table td{padding:15px 13px}
+.request-table th{padding:14px 13px}
+.request-id{font-weight:700;color:#3156c5}
+</style>
+
+<div class="request-toolbar">
+  <div>
+    <div class="eyebrow">PROCUREMENT WORKSPACE</div>
+    <h1>Purchase Requests</h1>
+    <p>Manage, review and track purchase requests.</p>
+  </div>
+  <a class="create-request-btn" href="{{ url_for('create_request') }}">
+    <span>+</span> Create New Request
+  </a>
+</div>
+
+<div class="panel table-panel">
+  <div class="panel-heading">
+    <div>
+      <h2>Request Register</h2>
+      <p>Latest purchase requests from the database</p>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table class="request-table">
+      <thead>
+        <tr>
+          <th>REQUEST ID</th>
+          <th>DEPARTMENT</th>
+          <th>CATEGORY</th>
+          <th>ESTIMATED COST</th>
+          <th>DATE</th>
+          <th>STATUS</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in records %}
+        <tr>
+          <td class="request-id">{{ r.id }}</td>
+          <td>{{ r.department_id }}</td>
+          <td>{{ r.category }}</td>
+          <td>{{ r.currency }} {{ "{:,.2f}".format(r.estimated_cost or 0) }}</td>
+          <td>{{ r.request_date }}</td>
+          <td><span class="status status-blue">{{ r.status }}</span></td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6">No requests found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="table-note">Showing up to 100 of {{ total }} purchase requests.</div>
+</div>
 {% endblock %}

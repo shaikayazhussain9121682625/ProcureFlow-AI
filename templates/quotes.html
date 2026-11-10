@@ -1,7 +1,26 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 {% block title %}Quote Comparison | ProcureFlow AI{% endblock %}
 {% block breadcrumb %}Quote Comparison{% endblock %}
 {% block content %}
-<div class="page-heading"><div><div class="eyebrow">SOURCING & EVALUATION</div><h1>Supplier Quote Comparison</h1><p>Compare landed cost, delivery time, validity and award status.</p></div><span class="primary-button">{{ total }} quotations</span></div>
-<div class="panel table-panel"><div class="panel-heading"><div><h2>Quotation register</h2><p>Sorted by RFQ and landed cost</p></div></div><div class="table-wrap"><table><thead><tr><th>QUOTE ID</th><th>RFQ</th><th>SUPPLIER</th><th>CURRENCY</th><th>LANDED COST</th><th>DELIVERY DAYS</th><th>VALID UNTIL</th><th>STATUS</th><th>AWARDED</th></tr></thead><tbody>{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.rfq_id }}</td><td>{{ r.supplier_name }}</td><td>{{ r.currency }}</td><td>{{ "{:,.2f}".format(r.total_landed_cost or 0) }}</td><td>{{ r.delivery_days }}</td><td>{{ r.valid_until }}</td><td>{{ r.status }}</td><td>{{ 'Yes' if r.is_awarded else 'No' }}</td></tr>{% else %}<tr><td colspan="9">No quotations found.</td></tr>{% endfor %}</tbody></table></div><div class="table-note">Award decisions and rationale are recorded with purchase orders.</div></div>
+<style>
+.wf-card{background:#fff;border:1px solid #e5eaf2;border-radius:14px;padding:23px;margin-bottom:22px}
+.wf-card h2{font-size:19px;color:#1c2b45;margin:0 0 7px}
+.wf-sub{color:#78869c;font-size:13px;margin:0 0 18px}
+.wf-btn{border:0;border-radius:8px;padding:10px 14px;font-weight:700;cursor:pointer}
+.wf-primary{background:#4169e1;color:white}.wf-green{background:#e8f7ee;color:#187342}
+.wf-input{padding:9px;border:1px solid #dce3ee;border-radius:8px;width:100%;max-width:230px}
+</style>
+<div class="page-heading"><div><div class="eyebrow">COMMERCIAL EVALUATION</div><h1>Supplier Quote Comparison</h1><p>Compare landed cost, delivery timelines and supplier eligibility.</p></div><span class="primary-button">{{ total }} quotations</span></div>
+
+<div class="wf-card"><h2>Open RFQs ? submit a supplier quotation</h2><p class="wf-sub">Choose an RFQ to record a quote from one of its invited suppliers.</p>
+<div class="table-wrap"><table><thead><tr><th>RFQ</th><th>REQUEST</th><th>CLOSING DATE</th><th>ACTION</th></tr></thead><tbody>
+{% for r in open_rfqs %}<tr><td>{{ r.id }}</td><td>{{ r.request_id }}</td><td>{{ r.closing_date }}</td><td><a class="wf-btn wf-primary" href="{{ url_for('submit_supplier_quote', rfq_id=r.id) }}">Enter quotation</a></td></tr>
+{% else %}<tr><td colspan="4">No open RFQs available.</td></tr>{% endfor %}
+</tbody></table></div></div>
+
+<div class="wf-card"><h2>Quotation register and award evaluation</h2><p class="wf-sub">Only eligible quotes can be awarded. The lowest eligible landed-cost quote is required.</p>
+<div class="table-wrap"><table><thead><tr><th>QUOTE ID</th><th>RFQ</th><th>SUPPLIER</th><th>LANDED COST</th><th>DELIVERY</th><th>VALID UNTIL</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody>
+{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.rfq_id }}</td><td>{{ r.supplier_name }}</td><td>{{ r.currency }} {{ "{:,.2f}".format(r.total_landed_cost or 0) }}</td><td>{{ r.delivery_days }} days</td><td>{{ r.valid_until }}</td><td>{{ r.status }}</td><td>{% if not r.is_awarded and r.status in ['RECEIVED','SUBMITTED'] %}<form method="POST" action="{{ url_for('award_supplier_quote', quote_id=r.id) }}" onsubmit="return confirm('Award this quotation and generate a purchase order?')"><input class="wf-input" name="award_rationale" placeholder="Award rationale" required><button class="wf-btn wf-green">Award supplier + Create PO</button></form>{% elif r.is_awarded %}<span>AWARDED</span>{% else %}?{% endif %}</td></tr>
+{% else %}<tr><td colspan="8">No supplier quotations found.</td></tr>{% endfor %}
+</tbody></table></div><div class="table-note">Showing up to 150 of {{ total }} quotations.</div></div>
 {% endblock %}

@@ -17998,5 +17998,35 @@
     "status": "ORDERED",
     "duplicate_of_id": null,
     "created_at": "2026-05-10T00:00:00"
+  },
+  {
+    "id": "PR-2026-001201",
+    "requester_id": "REQTR-000001",
+    "department_id": "DEP-006",
+    "budget_id": "BUD-DEP-006-01",
+    "request_date": "2026-11-10",
+    "required_date": "2026-11-30",
+    "category": "IT Equipment",
+    "estimated_cost": 74999.86,
+    "currency": "INR",
+    "purpose": "Purchase 5 laptops for newly recruited employees in the IT department to support daily development and operational activities.",
+    "status": "RFQ_CREATED",
+    "duplicate_of_id": null,
+    "created_at": "2026-11-10T06:36:08.376056"
+  },
+  {
+    "id": "PR-2026-001202",
+    "requester_id": "REQTR-000001",
+    "department_id": "DEP-006",
+    "budget_id": "BUD-DEP-006-01",
+    "request_date": "2026-11-10",
+    "required_date": "2026-11-30",
+    "category": "IT Equipment",
+    "estimated_cost": 74999.86,
+    "currency": "INR",
+    "purpose": "simply",
+    "status": "REJECTED",
+    "duplicate_of_id": null,
+    "created_at": "2026-11-10T06:40:09.011337"
   }
 ]

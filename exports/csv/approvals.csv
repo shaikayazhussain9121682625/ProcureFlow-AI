@@ -1305,3 +1305,6 @@ APR-2026-001303,PR-2026-000642,Department Manager - Synthetic,Department Manager
 APR-2026-001304,PR-2026-001000,Department Manager - Synthetic,Department Manager,1,APPROVED,50000.0,Approved under configured procurement approval policy and available budget.,2026-11-09T00:00:00
 APR-2026-001305,PR-2026-001111,Department Manager - Synthetic,Department Manager,1,APPROVED,50000.0,Approved under configured procurement approval policy and available budget.,2026-11-09T00:00:00
 APR-2026-001306,PR-2026-000158,Department Manager - Synthetic,Department Manager,1,APPROVED,50000.0,Approved under configured procurement approval policy and available budget.,2026-11-10T00:00:00
+APR-2026-001307,PR-2026-001201,Procurement Admin,Department Manager,1,APPROVED,74999.86,APPROVED through ProcureFlow AI,2026-11-10T12:13:14.756945
+APR-2026-001308,PR-2026-001201,Procurement Admin,Department Head,2,APPROVED,74999.86,APPROVED through ProcureFlow AI,2026-11-10T12:13:14.756945
+APR-2026-001309,PR-2026-001202,Procurement Admin,Department Manager,1,REJECTED,74999.86,REJECTED through ProcureFlow AI,2026-11-10T12:13:18.865743

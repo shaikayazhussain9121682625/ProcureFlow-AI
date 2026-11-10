@@ -50,7 +50,29 @@
             </div>
         </header>
         <section class="page-content">
-            {% block content %}{% endblock %}
+            
+<style>
+.flash-message{
+ position:relative;padding:15px 20px;margin:18px 0;
+ border-radius:10px;font-weight:600;font-size:14px;
+ display:flex;align-items:center;gap:10px;
+ box-shadow:0 4px 14px rgba(0,0,0,.06);
+}
+.flash-success{background:#e9f8ef;color:#176b38;border:1px solid #a9dfbb}
+.flash-error{background:#fff0f0;color:#b42318;border:1px solid #f0b6b6}
+.flash-close{margin-left:auto;background:none;border:0;font-size:20px;cursor:pointer;color:inherit}
+</style>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <div class="flash-message {{ 'flash-success' if category == 'success' else 'flash-error' }}" role="alert">
+      <strong>{{ 'SUCCESS' if category == 'success' else 'PLEASE CHECK' }}</strong>
+      <span>{{ message }}</span>
+      <button class="flash-close" onclick="this.parentElement.remove()" type="button">&times;</button>
+    </div>
+  {% endfor %}
+{% endwith %}
+
+{% block content %}{% endblock %}
         </section>
         <footer class="footer">© 2026 ProcureFlow AI <span>Intelligent procurement management</span></footer>
     </main>

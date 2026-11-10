@@ -1,7 +1,19 @@
-﻿{% extends "base.html" %}
-{% block title %}Deliveries | ProcureFlow AI{% endblock %}
-{% block breadcrumb %}Deliveries{% endblock %}
+{% extends "base.html" %}
+{% block title %}Delivery Tracking | ProcureFlow AI{% endblock %}
+{% block breadcrumb %}Delivery Tracking{% endblock %}
 {% block content %}
-<div class="page-heading"><div><div class="eyebrow">FULFILLMENT</div><h1>Delivery Tracking</h1><p>Track expected and received quantities against purchase orders.</p></div><span class="primary-button">{{ total }} delivery records</span></div>
-<div class="panel table-panel"><div class="panel-heading"><div><h2>Delivery register</h2><p>Latest 100 delivery records</p></div></div><div class="table-wrap"><table><thead><tr><th>DELIVERY ID</th><th>PO ID</th><th>DELIVERY DATE</th><th>EXPECTED DATE</th><th>ORDER QTY</th><th>RECEIVED QTY</th><th>STATUS</th><th>NOTES</th></tr></thead><tbody>{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.po_id }}</td><td>{{ r.delivery_date }}</td><td>{{ r.expected_date }}</td><td>{{ r.item_quantity }}</td><td>{{ r.received_quantity }}</td><td>{{ r.status }}</td><td>{{ r.notes or '—' }}</td></tr>{% else %}<tr><td colspan="8">No deliveries found.</td></tr>{% endfor %}</tbody></table></div></div>
+<style>
+.delivery-card{background:white;border:1px solid #e5eaf2;border-radius:14px;padding:22px;margin-bottom:20px}
+.delivery-card h2{font-size:19px;color:#1c2b45;margin:0 0 7px}
+.delivery-sub{color:#78869c;font-size:13px;margin:0 0 18px}
+.delivery-form{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.delivery-form input{padding:9px;border:1px solid #dce3ee;border-radius:7px;max-width:125px}
+.delivery-form button{border:0;border-radius:7px;background:#4169e1;color:white;padding:10px 14px;font-weight:700;cursor:pointer}
+</style>
+<div class="page-heading"><div><div class="eyebrow">FULFILMENT WORKSPACE</div><h1>Delivery Tracking</h1><p>Record received quantities and monitor order fulfilment.</p></div></div>
+<div class="delivery-card"><h2>Delivery register</h2><p class="delivery-sub">Update quantities received. The delivery, PO and request statuses are synchronized.</p>
+<div class="table-wrap"><table><thead><tr><th>DELIVERY ID</th><th>PO ID</th><th>EXPECTED DATE</th><th>ORDERED QTY</th><th>RECEIVED QTY</th><th>STATUS</th><th>UPDATE DELIVERY</th></tr></thead><tbody>
+{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.po_id }}</td><td>{{ r.expected_date }}</td><td>{{ r.item_quantity }}</td><td>{{ r.received_quantity }}</td><td>{{ r.status }}</td><td><form class="delivery-form" method="POST" action="{{ url_for('update_delivery', delivery_id=r.id) }}" onsubmit="return confirm('Save this delivery update?')"><input type="number" name="received_quantity" min="0" max="{{ r.item_quantity }}" value="{{ r.received_quantity }}" required><input type="text" name="notes" placeholder="Delivery notes"><button type="submit">Save update</button></form></td></tr>
+{% else %}<tr><td colspan="7">No deliveries found. Award a supplier quote to create a delivery.</td></tr>{% endfor %}
+</tbody></table></div><div class="table-note">Showing up to 100 of {{ total }} deliveries.</div></div>
 {% endblock %}

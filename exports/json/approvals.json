@@ -14364,5 +14364,38 @@
     "threshold_amount": 50000.0,
     "comments": "Approved under configured procurement approval policy and available budget.",
     "decided_at": "2026-11-10T00:00:00"
+  },
+  {
+    "id": "APR-2026-001307",
+    "request_id": "PR-2026-001201",
+    "approver_name": "Procurement Admin",
+    "approver_role": "Department Manager",
+    "approval_level": 1,
+    "decision": "APPROVED",
+    "threshold_amount": 74999.86,
+    "comments": "APPROVED through ProcureFlow AI",
+    "decided_at": "2026-11-10T12:13:14.756945"
+  },
+  {
+    "id": "APR-2026-001308",
+    "request_id": "PR-2026-001201",
+    "approver_name": "Procurement Admin",
+    "approver_role": "Department Head",
+    "approval_level": 2,
+    "decision": "APPROVED",
+    "threshold_amount": 74999.86,
+    "comments": "APPROVED through ProcureFlow AI",
+    "decided_at": "2026-11-10T12:13:14.756945"
+  },
+  {
+    "id": "APR-2026-001309",
+    "request_id": "PR-2026-001202",
+    "approver_name": "Procurement Admin",
+    "approver_role": "Department Manager",
+    "approval_level": 1,
+    "decision": "REJECTED",
+    "threshold_amount": 74999.86,
+    "comments": "REJECTED through ProcureFlow AI",
+    "decided_at": "2026-11-10T12:13:18.865743"
   }
 ]

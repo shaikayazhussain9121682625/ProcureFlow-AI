@@ -1,4 +1,4 @@
-﻿from flask import Flask, render_template
+from flask import Flask, render_template
 from sqlalchemy import text
 from config import Config
 from database.db import db
@@ -36,8 +36,25 @@ def requests():
 
 @app.route("/approvals")
 def approvals():
-    records = query("SELECT id, request_id, approver_name, approver_role, approval_level, decision, decided_at FROM approvals ORDER BY id DESC LIMIT 100")
-    return render_template("approvals.html", records=records, total=count("approvals"))
+    records = query("""
+        SELECT id, request_id, approver_name, approver_role,
+               approval_level, decision, decided_at
+        FROM approvals ORDER BY id DESC LIMIT 100
+    """)
+    pending_requests = query("""
+        SELECT pr.id, pr.category, pr.estimated_cost, pr.currency,
+               pr.status, pr.request_date, req.name AS requester_name
+        FROM purchase_requests pr
+        JOIN requesters req ON req.id = pr.requester_id
+        WHERE pr.status IN ('SUBMITTED', 'PENDING_APPROVAL')
+        ORDER BY pr.request_date DESC
+    """)
+    return render_template(
+        "approvals.html",
+        records=records,
+        pending_requests=pending_requests,
+        total=count("approvals")
+    )
 
 @app.route("/suppliers")
 def suppliers():
@@ -60,7 +77,15 @@ def rfqs():
         LEFT JOIN supplier_quotes q ON q.rfq_id = r.id
         GROUP BY r.id ORDER BY r.created_date DESC LIMIT 100
     """)
-    return render_template("rfqs.html", records=records, total=count("rfqs"))
+    eligible_requests = query("""
+        SELECT pr.id, pr.category, pr.estimated_cost, pr.currency, pr.status
+        FROM purchase_requests pr
+        WHERE pr.status = 'APPROVED'
+          AND NOT EXISTS (SELECT 1 FROM rfqs r WHERE r.request_id = pr.id)
+        ORDER BY pr.request_date DESC LIMIT 100
+    """)
+    return render_template("rfqs.html", records=records, total=count("rfqs"),
+                           eligible_requests=eligible_requests)
 
 @app.route("/quotes")
 def quotes():
@@ -72,7 +97,13 @@ def quotes():
         JOIN suppliers s ON s.id = q.supplier_id
         ORDER BY q.rfq_id, q.total_landed_cost LIMIT 150
     """)
-    return render_template("quotes.html", records=records, total=count("supplier_quotes"))
+    open_rfqs = query("""
+        SELECT r.id, r.request_id, r.closing_date
+        FROM rfqs r WHERE r.status = 'OPEN'
+        ORDER BY r.created_date DESC
+    """)
+    return render_template("quotes.html", records=records,
+                           total=count("supplier_quotes"), open_rfqs=open_rfqs)
 
 @app.route("/purchase-orders")
 def purchase_orders():
@@ -101,6 +132,11 @@ def audit():
         FROM audit_events ORDER BY occurred_at DESC LIMIT 150
     """)
     return render_template("audit.html", records=records, total=count("audit_events"))
+
+from services.ui_workflow import register_ui_routes
+register_ui_routes(app)
+from services.remaining_workflow import register_remaining_routes
+register_remaining_routes(app)
 
 if __name__ == "__main__":
     with app.app_context():

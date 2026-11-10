@@ -26057,5 +26057,27 @@
     "unit": "pieces",
     "estimated_unit_price": 6603.95,
     "estimated_total": 6603.95
+  },
+  {
+    "id": "RL-2026-0002370",
+    "request_id": "PR-2026-001201",
+    "item_name": "Laptop Computers",
+    "description": "Purchase 5 laptops for newly recruited employees in the IT department to support daily development and operational activities.",
+    "category": "IT Equipment",
+    "quantity": 1,
+    "unit": "unit",
+    "estimated_unit_price": 74999.86,
+    "estimated_total": 74999.86
+  },
+  {
+    "id": "RL-2026-0002371",
+    "request_id": "PR-2026-001202",
+    "item_name": "Laptop Computers",
+    "description": "simply",
+    "category": "IT Equipment",
+    "quantity": 1,
+    "unit": "unit",
+    "estimated_unit_price": 74999.86,
+    "estimated_total": 74999.86
   }
 ]

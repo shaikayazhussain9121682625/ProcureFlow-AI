@@ -1,9 +1,364 @@
-﻿{% extends "base.html" %}
-{% block title %}Approvals | ProcureFlow AI{% endblock %}
-{% block breadcrumb %}Approvals{% endblock %}
+{% extends "base.html" %}
+{% block title %}Approvals | ProcureFlow AI
+<style>
+.confirm-overlay{display:none;position:fixed;inset:0;background:rgba(15,25,45,.58);z-index:9999;align-items:center;justify-content:center;padding:20px}
+.confirm-overlay.show{display:flex}
+.confirm-box{background:white;width:100%;max-width:430px;border-radius:16px;padding:28px;box-shadow:0 22px 70px rgba(0,0,0,.22);animation:popin .18s ease}
+@keyframes popin{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.confirm-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:800;margin-bottom:18px}
+.confirm-icon.approve{background:#e6f7ed;color:#168044}
+.confirm-icon.reject{background:#fff0f0;color:#c62828}
+.confirm-box h2{font-size:21px;color:#1c2940;margin:0 0 9px}
+.confirm-box p{font-size:14px;line-height:1.6;color:#71809a;margin:0 0 23px}
+.confirm-actions{display:flex;justify-content:flex-end;gap:10px}
+.confirm-actions button{padding:11px 18px;border:0;border-radius:8px;font-weight:700;cursor:pointer}
+.confirm-cancel{background:#edf1f7;color:#475569}
+.confirm-yes.approve{background:#168044;color:white}
+.confirm-yes.reject{background:#c62828;color:white}
+</style>
+
+<div class="confirm-overlay" id="decisionModal">
+  <div class="confirm-box">
+    <div class="confirm-icon" id="decisionIcon">?</div>
+    <h2 id="decisionTitle">Confirm decision</h2>
+    <p id="decisionMessage">Please confirm your action.</p>
+    <div class="confirm-actions">
+      <button type="button" class="confirm-cancel" id="cancelDecision">Cancel</button>
+      <button type="button" class="confirm-yes" id="confirmDecision">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const modal = document.getElementById("decisionModal");
+  const title = document.getElementById("decisionTitle");
+  const message = document.getElementById("decisionMessage");
+  const icon = document.getElementById("decisionIcon");
+  const confirmButton = document.getElementById("confirmDecision");
+  let selectedForm = null;
+  let selectedDecision = "";
+
+  document.querySelectorAll(".decision-form").forEach(function(form){
+    form.querySelectorAll("button[name='decision']").forEach(function(button){
+      button.addEventListener("click", function(event){
+        event.preventDefault();
+        selectedForm = form;
+        selectedDecision = button.value;
+
+        const requestId = form.action.split("/").pop();
+        const approving = selectedDecision === "APPROVED";
+
+        title.textContent = approving ? "Approve purchase request?" : "Reject purchase request?";
+        message.textContent = (approving
+          ? "You are about to approve "
+          : "You are about to reject ") + requestId +
+          ". This decision will be recorded in the procurement audit history.";
+
+        icon.textContent = approving ? "?" : "!";
+        icon.className = "confirm-icon " + (approving ? "approve" : "reject");
+        confirmButton.textContent = approving ? "Yes, approve" : "Yes, reject";
+        confirmButton.className = "confirm-yes " + (approving ? "approve" : "reject");
+        modal.classList.add("show");
+      });
+    });
+  });
+
+  document.getElementById("cancelDecision").addEventListener("click", function(){
+    modal.classList.remove("show");
+    selectedForm = null;
+  });
+
+  confirmButton.addEventListener("click", function(){
+    if(!selectedForm) return;
+
+    const hidden = document.createElement("input");
+    hidden.type = "hidden";
+    hidden.name = "decision";
+    hidden.value = selectedDecision;
+    selectedForm.appendChild(hidden);
+    selectedForm.submit();
+  });
+
+  modal.addEventListener("click", function(event){
+    if(event.target === modal){
+      modal.classList.remove("show");
+      selectedForm = null;
+    }
+  });
+});
+</script>
+
+{% endblock %}
+{% block breadcrumb %}Approvals
+<style>
+.confirm-overlay{display:none;position:fixed;inset:0;background:rgba(15,25,45,.58);z-index:9999;align-items:center;justify-content:center;padding:20px}
+.confirm-overlay.show{display:flex}
+.confirm-box{background:white;width:100%;max-width:430px;border-radius:16px;padding:28px;box-shadow:0 22px 70px rgba(0,0,0,.22);animation:popin .18s ease}
+@keyframes popin{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.confirm-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:800;margin-bottom:18px}
+.confirm-icon.approve{background:#e6f7ed;color:#168044}
+.confirm-icon.reject{background:#fff0f0;color:#c62828}
+.confirm-box h2{font-size:21px;color:#1c2940;margin:0 0 9px}
+.confirm-box p{font-size:14px;line-height:1.6;color:#71809a;margin:0 0 23px}
+.confirm-actions{display:flex;justify-content:flex-end;gap:10px}
+.confirm-actions button{padding:11px 18px;border:0;border-radius:8px;font-weight:700;cursor:pointer}
+.confirm-cancel{background:#edf1f7;color:#475569}
+.confirm-yes.approve{background:#168044;color:white}
+.confirm-yes.reject{background:#c62828;color:white}
+</style>
+
+<div class="confirm-overlay" id="decisionModal">
+  <div class="confirm-box">
+    <div class="confirm-icon" id="decisionIcon">?</div>
+    <h2 id="decisionTitle">Confirm decision</h2>
+    <p id="decisionMessage">Please confirm your action.</p>
+    <div class="confirm-actions">
+      <button type="button" class="confirm-cancel" id="cancelDecision">Cancel</button>
+      <button type="button" class="confirm-yes" id="confirmDecision">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const modal = document.getElementById("decisionModal");
+  const title = document.getElementById("decisionTitle");
+  const message = document.getElementById("decisionMessage");
+  const icon = document.getElementById("decisionIcon");
+  const confirmButton = document.getElementById("confirmDecision");
+  let selectedForm = null;
+  let selectedDecision = "";
+
+  document.querySelectorAll(".decision-form").forEach(function(form){
+    form.querySelectorAll("button[name='decision']").forEach(function(button){
+      button.addEventListener("click", function(event){
+        event.preventDefault();
+        selectedForm = form;
+        selectedDecision = button.value;
+
+        const requestId = form.action.split("/").pop();
+        const approving = selectedDecision === "APPROVED";
+
+        title.textContent = approving ? "Approve purchase request?" : "Reject purchase request?";
+        message.textContent = (approving
+          ? "You are about to approve "
+          : "You are about to reject ") + requestId +
+          ". This decision will be recorded in the procurement audit history.";
+
+        icon.textContent = approving ? "?" : "!";
+        icon.className = "confirm-icon " + (approving ? "approve" : "reject");
+        confirmButton.textContent = approving ? "Yes, approve" : "Yes, reject";
+        confirmButton.className = "confirm-yes " + (approving ? "approve" : "reject");
+        modal.classList.add("show");
+      });
+    });
+  });
+
+  document.getElementById("cancelDecision").addEventListener("click", function(){
+    modal.classList.remove("show");
+    selectedForm = null;
+  });
+
+  confirmButton.addEventListener("click", function(){
+    if(!selectedForm) return;
+
+    const hidden = document.createElement("input");
+    hidden.type = "hidden";
+    hidden.name = "decision";
+    hidden.value = selectedDecision;
+    selectedForm.appendChild(hidden);
+    selectedForm.submit();
+  });
+
+  modal.addEventListener("click", function(event){
+    if(event.target === modal){
+      modal.classList.remove("show");
+      selectedForm = null;
+    }
+  });
+});
+</script>
+
+{% endblock %}
 {% block content %}
-<div class="page-heading"><div><div class="eyebrow">CONTROL CENTER</div><h1>Approval Management</h1><p>Approval decisions recorded in the database.</p></div><span class="primary-button">{{ total }} approval records</span></div>
-<div class="panel table-panel"><div class="panel-heading"><div><h2>Approval register</h2><p>Latest 100 approval records</p></div></div><div class="table-wrap"><table><thead><tr><th>APPROVAL ID</th><th>REQUEST ID</th><th>APPROVER</th><th>ROLE</th><th>LEVEL</th><th>DECISION</th><th>DATE</th></tr></thead><tbody>
-{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.request_id }}</td><td>{{ r.approver_name }}</td><td>{{ r.approver_role }}</td><td>{{ r.approval_level }}</td><td><span class="status status-green">{{ r.decision }}</span></td><td>{{ r.decided_at }}</td></tr>{% else %}<tr><td colspan="7">No approval records found.</td></tr>{% endfor %}
-</tbody></table></div><div class="table-note">Showing up to 100 of {{ total }} approval records.</div></div>
+<style>
+.approval-intro{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:24px}
+.approval-intro h1{font-size:29px;color:#17233c;margin:6px 0}
+.approval-intro p{color:#71809a;margin:0}
+.approval-count{background:#eaf0ff;color:#3156c5;padding:10px 15px;border-radius:9px;font-weight:700}
+.approval-card{background:#fff;border:1px solid #e6ebf3;border-radius:13px;padding:22px;margin-bottom:24px}
+.approval-card h2{font-size:18px;margin:0 0 5px;color:#243450}
+.approval-card .sub{color:#8793a6;font-size:13px;margin:0 0 18px}
+.decision-form{display:flex;gap:8px;align-items:center;flex-wrap:wrap;min-width:270px}
+.decision-form input{padding:9px;border:1px solid #dce3ee;border-radius:7px;min-width:130px;flex:1}
+.decision-btn{border:0;border-radius:7px;padding:10px 13px;font-weight:700;cursor:pointer}
+.approve-btn{background:#e7f7ed;color:#16713b}
+.reject-btn{background:#fff0f0;color:#b42318}
+.pending-tag{background:#fff5df;color:#986500;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:700}
+</style>
+
+<div class="approval-intro">
+  <div>
+    <div class="eyebrow">CONTROL CENTER</div>
+    <h1>Approval Management</h1>
+    <p>Review submitted purchase requests and record approval decisions.</p>
+  </div>
+  <span class="approval-count">{{ pending_requests|length }} requests awaiting decision</span>
+</div>
+
+<div class="approval-card">
+  <h2>Requests awaiting decision</h2>
+  <p class="sub">Review each request and approve or reject it.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>REQUEST ID</th><th>REQUESTER</th><th>CATEGORY</th>
+          <th>ESTIMATED COST</th><th>STATUS</th><th>DECISION</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in pending_requests %}
+        <tr>
+          <td><strong>{{ r.id }}</strong></td>
+          <td>{{ r.requester_name }}</td>
+          <td>{{ r.category }}</td>
+          <td>{{ r.currency }} {{ "{:,.2f}".format(r.estimated_cost or 0) }}</td>
+          <td><span class="pending-tag">{{ r.status }}</span></td>
+          <td>
+            <form class="decision-form" method="POST"
+                  action="{{ url_for('request_decision', request_id=r.id) }}"
+                  class="decision-form">
+              <input type="text" name="comments" placeholder="Decision comments">
+              <button class="decision-btn approve-btn" name="decision" value="APPROVED" type="submit">Approve</button>
+              <button class="decision-btn reject-btn" name="decision" value="REJECTED" type="submit">Reject</button>
+            </form>
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6">No requests are currently awaiting approval.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="approval-card">
+  <h2>Approval history</h2>
+  <p class="sub">Latest 100 approval decisions recorded in the database.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>APPROVAL ID</th><th>REQUEST ID</th><th>APPROVER</th>
+          <th>ROLE</th><th>LEVEL</th><th>DECISION</th><th>DATE</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in records %}
+        <tr>
+          <td>{{ r.id }}</td><td>{{ r.request_id }}</td>
+          <td>{{ r.approver_name }}</td><td>{{ r.approver_role }}</td>
+          <td>{{ r.approval_level }}</td><td>{{ r.decision }}</td>
+          <td>{{ r.decided_at }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="7">No approval records found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="table-note">Showing up to 100 of {{ total }} approval records.</div>
+</div>
+
+<style>
+.confirm-overlay{display:none;position:fixed;inset:0;background:rgba(15,25,45,.58);z-index:9999;align-items:center;justify-content:center;padding:20px}
+.confirm-overlay.show{display:flex}
+.confirm-box{background:white;width:100%;max-width:430px;border-radius:16px;padding:28px;box-shadow:0 22px 70px rgba(0,0,0,.22);animation:popin .18s ease}
+@keyframes popin{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.confirm-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:800;margin-bottom:18px}
+.confirm-icon.approve{background:#e6f7ed;color:#168044}
+.confirm-icon.reject{background:#fff0f0;color:#c62828}
+.confirm-box h2{font-size:21px;color:#1c2940;margin:0 0 9px}
+.confirm-box p{font-size:14px;line-height:1.6;color:#71809a;margin:0 0 23px}
+.confirm-actions{display:flex;justify-content:flex-end;gap:10px}
+.confirm-actions button{padding:11px 18px;border:0;border-radius:8px;font-weight:700;cursor:pointer}
+.confirm-cancel{background:#edf1f7;color:#475569}
+.confirm-yes.approve{background:#168044;color:white}
+.confirm-yes.reject{background:#c62828;color:white}
+</style>
+
+<div class="confirm-overlay" id="decisionModal">
+  <div class="confirm-box">
+    <div class="confirm-icon" id="decisionIcon">?</div>
+    <h2 id="decisionTitle">Confirm decision</h2>
+    <p id="decisionMessage">Please confirm your action.</p>
+    <div class="confirm-actions">
+      <button type="button" class="confirm-cancel" id="cancelDecision">Cancel</button>
+      <button type="button" class="confirm-yes" id="confirmDecision">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const modal = document.getElementById("decisionModal");
+  const title = document.getElementById("decisionTitle");
+  const message = document.getElementById("decisionMessage");
+  const icon = document.getElementById("decisionIcon");
+  const confirmButton = document.getElementById("confirmDecision");
+  let selectedForm = null;
+  let selectedDecision = "";
+
+  document.querySelectorAll(".decision-form").forEach(function(form){
+    form.querySelectorAll("button[name='decision']").forEach(function(button){
+      button.addEventListener("click", function(event){
+        event.preventDefault();
+        selectedForm = form;
+        selectedDecision = button.value;
+
+        const requestId = form.action.split("/").pop();
+        const approving = selectedDecision === "APPROVED";
+
+        title.textContent = approving ? "Approve purchase request?" : "Reject purchase request?";
+        message.textContent = (approving
+          ? "You are about to approve "
+          : "You are about to reject ") + requestId +
+          ". This decision will be recorded in the procurement audit history.";
+
+        icon.textContent = approving ? "?" : "!";
+        icon.className = "confirm-icon " + (approving ? "approve" : "reject");
+        confirmButton.textContent = approving ? "Yes, approve" : "Yes, reject";
+        confirmButton.className = "confirm-yes " + (approving ? "approve" : "reject");
+        modal.classList.add("show");
+      });
+    });
+  });
+
+  document.getElementById("cancelDecision").addEventListener("click", function(){
+    modal.classList.remove("show");
+    selectedForm = null;
+  });
+
+  confirmButton.addEventListener("click", function(){
+    if(!selectedForm) return;
+
+    const hidden = document.createElement("input");
+    hidden.type = "hidden";
+    hidden.name = "decision";
+    hidden.value = selectedDecision;
+    selectedForm.appendChild(hidden);
+    selectedForm.submit();
+  });
+
+  modal.addEventListener("click", function(event){
+    if(event.target === modal){
+      modal.classList.remove("show");
+      selectedForm = null;
+    }
+  });
+});
+</script>
+
 {% endblock %}

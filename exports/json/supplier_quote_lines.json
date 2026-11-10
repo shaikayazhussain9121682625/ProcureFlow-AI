@@ -55966,5 +55966,13 @@
     "quantity": 1,
     "unit_price": 6039.71,
     "line_total": 6039.71
+  },
+  {
+    "id": "QTL-2026-0006997",
+    "quote_id": "QUO-SUPP-0008-2026-003550",
+    "request_line_id": "RL-2026-0002370",
+    "quantity": 1,
+    "unit_price": 73000.0,
+    "line_total": 73000.0
   }
 ]

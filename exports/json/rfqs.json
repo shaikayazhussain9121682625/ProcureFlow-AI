@@ -10645,5 +10645,14 @@
     "status": "AWARDED",
     "competitive": true,
     "exception_reason": null
+  },
+  {
+    "id": "RFQ-2026-001184",
+    "request_id": "PR-2026-001201",
+    "created_date": "2026-11-10",
+    "closing_date": "2026-11-17",
+    "status": "OPEN",
+    "competitive": true,
+    "exception_reason": null
   }
 ]

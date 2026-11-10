@@ -9487,3 +9487,10 @@ id,entity_type,entity_id,event_type,old_value,new_value,reason,actor,occurred_at
 9486,AnomalyRecord,5,ANOMALY_LABEL_CREATED,,BUDGET_OVERRUN,Purchase amount exceeds available budget.,Data Quality System,2026-11-10T05:43:24.205320
 9487,AnomalyRecord,6,ANOMALY_LABEL_CREATED,,DUPLICATE_REQUEST,Potential duplicate purchase request detected.,Data Quality System,2026-11-10T05:43:24.205320
 9488,AnomalyRecord,7,ANOMALY_LABEL_CREATED,,QUOTE_CURRENCY_MISMATCH,Supplier quote currency does not match purchase request currency.,Data Quality System,2026-11-10T05:43:24.205320
+9489,PurchaseRequest,PR-2026-001201,REQUEST_SUBMITTED,,SUBMITTED,Submitted through ProcureFlow AI interface,Dhruv Chokshi,2026-11-10T06:36:08.371189
+9490,PurchaseRequest,PR-2026-001202,REQUEST_SUBMITTED,,SUBMITTED,Submitted through ProcureFlow AI interface,Dhruv Chokshi,2026-11-10T06:40:09.007572
+9491,PurchaseRequest,PR-2026-001201,REQUEST_APPROVED,SUBMITTED,APPROVED,Decision recorded through application,Procurement Admin,2026-11-10T06:43:14.761951
+9492,PurchaseRequest,PR-2026-001202,REQUEST_REJECTED,SUBMITTED,REJECTED,Decision recorded through application,Procurement Admin,2026-11-10T06:43:18.868749
+9493,RFQ,RFQ-2026-001184,RFQ_CREATED,,OPEN,Three active suppliers invited,Procurement Admin,2026-11-10T12:22:18.426743
+9494,PurchaseRequest,PR-2026-001201,REQUEST_CONVERTED_TO_RFQ,APPROVED,RFQ_CREATED,RFQ created,Procurement Admin,2026-11-10T12:22:18.426743
+9495,SupplierQuote,QUO-SUPP-0008-2026-003550,QUOTE_SUBMITTED,,RECEIVED,"Supplier Varty, Chahal and Goyal 8 submitted quotation",Procurement Admin,2026-11-10T12:26:32.960854

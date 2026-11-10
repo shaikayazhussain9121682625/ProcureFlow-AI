@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Submit Supplier Quote | ProcureFlow AI{% endblock %}
+{% block breadcrumb %}Submit Supplier Quote{% endblock %}
+{% block content %}
+<style>
+.quote-wrap{max-width:850px;margin:auto}.quote-card{background:white;border:1px solid #e5eaf2;border-radius:15px;padding:28px}
+.quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.quote-field{display:flex;flex-direction:column;gap:7px}.quote-field.full{grid-column:1/-1}
+.quote-field label{font-size:13px;font-weight:700;color:#40516d}
+.quote-field input,.quote-field select{padding:12px;border:1px solid #dce3ee;border-radius:8px;font-size:14px}
+.quote-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:25px}
+.quote-actions button,.quote-actions a{border:0;border-radius:8px;padding:12px 18px;font-weight:700;text-decoration:none;cursor:pointer}
+.quote-submit{background:#4169e1;color:white}.quote-cancel{background:#edf1f7;color:#465570}
+@media(max-width:650px){.quote-grid{grid-template-columns:1fr}.quote-field.full{grid-column:auto}}
+</style>
+<div class="quote-wrap"><div class="eyebrow">SUPPLIER SOURCING</div><h1>Submit Supplier Quotation</h1><p>RFQ {{ rfq.id }} ? Request {{ pr.id }} ? {{ pr.category }}</p>
+<form class="quote-card" method="POST">
+<div class="quote-grid">
+<div class="quote-field full"><label>Invited supplier *</label><select name="supplier_id" required><option value="">Select invited supplier</option>{% for s in suppliers %}<option value="{{ s.id }}">{{ s.name }} ? {{ s.supplier_code }}</option>{% endfor %}</select></div>
+<div class="quote-field"><label>Total landed cost ({{ pr.currency }}) *</label><input type="number" min="0.01" step="0.01" name="total_landed_cost" placeholder="e.g. 72000" required></div>
+<div class="quote-field"><label>Delivery time (days) *</label><input type="number" min="1" name="delivery_days" value="7" required></div>
+<div class="quote-field"><label>Quote valid until *</label><input type="date" name="valid_until" min="{{ rfq.closing_date }}" required></div>
+<div class="quote-field"><label>Currency</label><input value="{{ pr.currency }}" disabled></div>
+</div>
+<div class="quote-actions"><a class="quote-cancel" href="{{ url_for('rfqs') }}">Cancel</a><button class="quote-submit" type="submit">Submit quotation</button></div>
+</form></div>
+{% endblock %}
