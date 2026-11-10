@@ -1,0 +1,7 @@
+﻿{% extends "base.html" %}
+{% block title %}Purchase Orders | ProcureFlow AI{% endblock %}
+{% block breadcrumb %}Purchase Orders{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">ORDER MANAGEMENT</div><h1>Purchase Orders</h1><p>Supplier awards, order values and fulfillment status.</p></div><span class="primary-button">{{ total }} purchase orders</span></div>
+<div class="panel table-panel"><div class="panel-heading"><div><h2>Purchase order register</h2><p>Latest 100 orders</p></div></div><div class="table-wrap"><table><thead><tr><th>PO ID</th><th>REQUEST</th><th>SUPPLIER</th><th>PO DATE</th><th>CURRENCY</th><th>TOTAL</th><th>STATUS</th><th>AWARD RATIONALE</th></tr></thead><tbody>{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.request_id }}</td><td>{{ r.supplier_name }}</td><td>{{ r.po_date }}</td><td>{{ r.currency }}</td><td>{{ "{:,.2f}".format(r.total_amount or 0) }}</td><td>{{ r.status }}</td><td>{{ r.award_rationale or '—' }}</td></tr>{% else %}<tr><td colspan="8">No purchase orders found.</td></tr>{% endfor %}</tbody></table></div></div>
+{% endblock %}

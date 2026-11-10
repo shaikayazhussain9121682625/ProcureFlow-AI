@@ -1,0 +1,7 @@
+﻿{% extends "base.html" %}
+{% block title %}Audit History | ProcureFlow AI{% endblock %}
+{% block breadcrumb %}Audit History{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">TRACEABILITY</div><h1>Audit History</h1><p>Recorded procurement events and decision history.</p></div><span class="primary-button">{{ total }} audit events</span></div>
+<div class="panel table-panel"><div class="panel-heading"><div><h2>Event history</h2><p>Latest 150 recorded events</p></div></div><div class="table-wrap"><table><thead><tr><th>EVENT ID</th><th>ENTITY</th><th>ENTITY ID</th><th>EVENT TYPE</th><th>OLD VALUE</th><th>NEW VALUE</th><th>REASON</th><th>ACTOR</th><th>TIME</th></tr></thead><tbody>{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.entity_type }}</td><td>{{ r.entity_id }}</td><td>{{ r.event_type }}</td><td>{{ r.old_value or '—' }}</td><td>{{ r.new_value or '—' }}</td><td>{{ r.reason or '—' }}</td><td>{{ r.actor or '—' }}</td><td>{{ r.occurred_at }}</td></tr>{% else %}<tr><td colspan="9">No audit events found.</td></tr>{% endfor %}</tbody></table></div></div>
+{% endblock %}

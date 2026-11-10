@@ -1,0 +1,7 @@
+﻿{% extends "base.html" %}
+{% block title %}Quote Comparison | ProcureFlow AI{% endblock %}
+{% block breadcrumb %}Quote Comparison{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">SOURCING & EVALUATION</div><h1>Supplier Quote Comparison</h1><p>Compare landed cost, delivery time, validity and award status.</p></div><span class="primary-button">{{ total }} quotations</span></div>
+<div class="panel table-panel"><div class="panel-heading"><div><h2>Quotation register</h2><p>Sorted by RFQ and landed cost</p></div></div><div class="table-wrap"><table><thead><tr><th>QUOTE ID</th><th>RFQ</th><th>SUPPLIER</th><th>CURRENCY</th><th>LANDED COST</th><th>DELIVERY DAYS</th><th>VALID UNTIL</th><th>STATUS</th><th>AWARDED</th></tr></thead><tbody>{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.rfq_id }}</td><td>{{ r.supplier_name }}</td><td>{{ r.currency }}</td><td>{{ "{:,.2f}".format(r.total_landed_cost or 0) }}</td><td>{{ r.delivery_days }}</td><td>{{ r.valid_until }}</td><td>{{ r.status }}</td><td>{{ 'Yes' if r.is_awarded else 'No' }}</td></tr>{% else %}<tr><td colspan="9">No quotations found.</td></tr>{% endfor %}</tbody></table></div><div class="table-note">Award decisions and rationale are recorded with purchase orders.</div></div>
+{% endblock %}

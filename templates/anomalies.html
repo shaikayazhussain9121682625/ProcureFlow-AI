@@ -1,0 +1,9 @@
+﻿{% extends "base.html" %}
+{% block title %}Anomalies | ProcureFlow AI{% endblock %}
+{% block breadcrumb %}Anomalies{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">RISK & COMPLIANCE</div><h1>Anomaly Detection</h1><p>Traceable procurement exceptions and expected decisions.</p></div><span class="alert-count">{{ total }} labelled cases</span></div>
+<div class="panel table-panel"><div class="panel-heading"><div><h2>Exception register</h2><p>Ground-truth records from the anomaly database</p></div></div><div class="table-wrap"><table><thead><tr><th>ENTITY TYPE</th><th>ENTITY ID</th><th>ISSUE TYPE</th><th>EXPECTED DECISION</th><th>REASON</th><th>DETECTED</th></tr></thead><tbody>
+{% for r in records %}<tr><td>{{ r.entity_type }}</td><td>{{ r.entity_id }}</td><td>{{ r.issue_type }}</td><td><span class="status {% if r.expected_decision == 'REJECT' %}status-red{% else %}status-purple{% endif %}">{{ r.expected_decision }}</span></td><td>{{ r.reason or 'See anomaly documentation' }}</td><td>{{ 'Yes' if r.detected else 'No' }}</td></tr>{% else %}<tr><td colspan="6">No anomaly records found.</td></tr>{% endfor %}
+</tbody></table></div><div class="table-note">Ground-truth labels are displayed here for review; they are excluded from normal dataset exports.</div></div>
+{% endblock %}

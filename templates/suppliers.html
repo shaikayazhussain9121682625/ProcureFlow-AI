@@ -1,0 +1,9 @@
+﻿{% extends "base.html" %}
+{% block title %}Suppliers | ProcureFlow AI{% endblock %}
+{% block breadcrumb %}Suppliers{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">VENDOR MANAGEMENT</div><h1>Supplier Directory</h1><p>Live supplier records and risk indicators.</p></div><span class="primary-button">{{ total }} suppliers</span></div>
+<div class="panel table-panel"><div class="panel-heading"><div><h2>Supplier register</h2><p>Latest 100 supplier records</p></div></div><div class="table-wrap"><table><thead><tr><th>SUPPLIER ID</th><th>CODE</th><th>SUPPLIER NAME</th><th>COUNTRY</th><th>RISK LEVEL</th><th>RISK SCORE</th><th>STATUS</th></tr></thead><tbody>
+{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.supplier_code }}</td><td>{{ r.name }}</td><td>{{ r.country }}</td><td><span class="status {% if r.risk_level == 'HIGH' %}status-red{% elif r.risk_level == 'MEDIUM' %}status-orange{% else %}status-green{% endif %}">{{ r.risk_level }}</span></td><td>{{ r.risk_score }}</td><td>{{ 'Active' if r.is_active else 'Inactive' }}</td></tr>{% else %}<tr><td colspan="7">No suppliers found.</td></tr>{% endfor %}
+</tbody></table></div><div class="table-note">Showing up to 100 of {{ total }} suppliers.</div></div>
+{% endblock %}

@@ -1,0 +1,8 @@
+entity_type,entity_id,issue_type,ground_truth,expected_decision,reason
+PurchaseOrder,PO-2026-000001,PO_WITHOUT_APPROVAL,ANOMALY,REJECT,Purchase order exists without an approved request.
+SupplierQuote,QUO-SUPP-0088-2026-000001,EXPIRED_QUOTE,ANOMALY,REJECT,Supplier quote expired before award.
+PurchaseOrder,PO-2026-001063,NON_CHEAPEST_SUPPLIER,ANOMALY,REVIEW,Selected supplier was not the cheapest eligible supplier.
+Supplier,SUP-000001,INACTIVE_SUPPLIER,ANOMALY,REJECT,Inactive supplier was selected.
+Budget,BUD-DEP-001-01,BUDGET_OVERRUN,ANOMALY,REJECT,Purchase amount exceeds available budget.
+PurchaseRequest,PR-2026-000002,DUPLICATE_REQUEST,ANOMALY,REVIEW,Potential duplicate purchase request detected.
+SupplierQuote,QUO-SUPP-0001-2026-000147,QUOTE_CURRENCY_MISMATCH,ANOMALY,REJECT,Supplier quote currency does not match purchase request currency.

@@ -1,0 +1,11 @@
+id,name,code,manager_name,is_active
+DEP-001,Engineering,DEPT-001,Barkha Gera,True
+DEP-002,Human Resources,DEPT-002,Wyatt Karpe,True
+DEP-003,Finance,DEPT-003,Aarnav Deep,True
+DEP-004,Marketing,DEPT-004,Rushil Hari,True
+DEP-005,Operations,DEPT-005,Hredhaan Hari,True
+DEP-006,Sales,DEPT-006,Yashoda D’Alia,True
+DEP-007,IT,DEPT-007,Shravya Ahluwalia,True
+DEP-008,Administration,DEPT-008,Jhalak Dhaliwal,True
+DEP-009,Procurement,DEPT-009,Vaishnavi Bhandari,True
+DEP-010,Legal,DEPT-010,Manbir Din,True

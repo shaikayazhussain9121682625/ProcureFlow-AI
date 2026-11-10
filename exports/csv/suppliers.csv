@@ -1,0 +1,240 @@
+id,supplier_code,name,email,phone,address,country,currency,risk_level,risk_score,is_active,created_at
+SUP-000001,SUPP-0001,"Pandit, Mandal and Gera 1",supplier1@example.com,+913330820334,"813, Seshadri
+Giridih 529570",India,INR,MEDIUM,49,False,2026-11-10T05:15:24.350952
+SUP-000002,SUPP-0002,Divan and Sons 2,supplier2@example.com,01193885126,"70, Raju Street, Howrah-514830",India,INR,LOW,26,True,2026-11-10T05:15:24.350952
+SUP-000003,SUPP-0003,Borde Group 3,supplier3@example.com,+919771805096,"H.No. 302
+Varty Road
+Kalyan-Dombivli 701049",India,INR,LOW,22,True,2026-11-10T05:15:24.350952
+SUP-000004,SUPP-0004,"Bedi, Basu and Thaman 4",supplier4@example.com,+916846075359,"45/868
+Pant, Mangalore-827847",India,INR,LOW,6,True,2026-11-10T05:15:24.350952
+SUP-000005,SUPP-0005,Anand Inc 5,supplier5@example.com,7948831768,"39, Sankar Nagar
+Hubli–Dharwad-650519",India,INR,MEDIUM,40,True,2026-11-10T05:15:24.350952
+SUP-000006,SUPP-0006,"Hayre, Apte and Madan 6",supplier6@example.com,5698719902,"611
+Solanki Ganj
+Siliguri-652659",India,INR,LOW,18,True,2026-11-10T05:15:24.350952
+SUP-000007,SUPP-0007,Behl-Bedi 7,supplier7@example.com,+917837204277,"50
+Kapur, Motihari-688716",India,INR,LOW,11,True,2026-11-10T05:15:24.350952
+SUP-000008,SUPP-0008,"Varty, Chahal and Goyal 8",supplier8@example.com,+911970388429,"849
+Baral Path, Suryapet 342455",India,INR,LOW,1,True,2026-11-10T05:15:24.350952
+SUP-000009,SUPP-0009,"Bhattacharyya, Deo and Dubey 9",supplier9@example.com,09247563830,"56/57, De Path
+Phagwara-471995",India,INR,LOW,29,True,2026-11-10T05:15:24.350952
+SUP-000010,SUPP-0010,Tailor Group 10,supplier10@example.com,+914415840664,"H.No. 288
+Deol
+Bareilly 541449",India,INR,LOW,16,True,2026-11-10T05:15:24.350952
+SUP-000011,SUPP-0011,"Gill, Johal and Ramachandran 11",supplier11@example.com,0515087425,"05/57
+Chauhan Nagar, Siliguri 553510",India,INR,MEDIUM,57,True,2026-11-10T05:15:24.350952
+SUP-000012,SUPP-0012,Mall and Sons 12,supplier12@example.com,+914803610521,"60, Bhat Circle
+Satna 652493",India,INR,LOW,22,True,2026-11-10T05:15:24.350952
+SUP-000013,SUPP-0013,Sekhon-Varkey 13,supplier13@example.com,6842647010,"53/100, Bajwa Chowk
+Tumkur-935412",India,INR,MEDIUM,64,True,2026-11-10T05:15:24.350952
+SUP-000014,SUPP-0014,"Sharma, Dhar and Sethi 14",supplier14@example.com,+916521291230,"H.No. 22, Bava Street, Shahjahanpur-710236",India,INR,MEDIUM,35,True,2026-11-10T05:15:24.350952
+SUP-000015,SUPP-0015,Ramaswamy-Guha 15,supplier15@example.com,+918398224006,"35, Nazareth Road, Anand 818643",India,INR,LOW,16,True,2026-11-10T05:15:24.350952
+SUP-000016,SUPP-0016,"Tata, Shankar and Date 16",supplier16@example.com,7242715756,"35/139
+Kar Circle, Bhusawal 001165",India,INR,LOW,12,True,2026-11-10T05:15:24.350952
+SUP-000017,SUPP-0017,"Venkatesh, Khosla and Loyal 17",supplier17@example.com,+919993124909,"364
+Vohra Marg, Kozhikode 922483",India,INR,LOW,2,True,2026-11-10T05:15:24.350952
+SUP-000018,SUPP-0018,"Magar, Pant and Ravel 18",supplier18@example.com,+910367302899,"91
+Kapoor Marg, Katni 631703",India,INR,LOW,24,True,2026-11-10T05:15:24.350952
+SUP-000019,SUPP-0019,"Bose, Prasad and Bobal 19",supplier19@example.com,03847084549,"47/972, Reddy Street, Tumkur 292942",India,INR,MEDIUM,46,True,2026-11-10T05:15:24.350952
+SUP-000020,SUPP-0020,Malhotra PLC 20,supplier20@example.com,05119326117,"81/091
+Kade Path
+New Delhi-032531",India,INR,MEDIUM,50,True,2026-11-10T05:15:24.350952
+SUP-000021,SUPP-0021,"Chawla, Brahmbhatt and Mann 21",supplier21@example.com,01931916141,"047, Bassi Nagar, Warangal 497130",India,INR,LOW,16,True,2026-11-10T05:15:24.350952
+SUP-000022,SUPP-0022,Shere-Savant 22,supplier22@example.com,01446023474,"532, Bandi Zila
+Jalna 633800",India,INR,MEDIUM,31,True,2026-11-10T05:15:24.350952
+SUP-000023,SUPP-0023,Soni-Khatri 23,supplier23@example.com,+919493323392,"77/209, Deshpande Marg
+Sasaram-053374",India,INR,LOW,9,True,2026-11-10T05:15:24.350952
+SUP-000024,SUPP-0024,Walia Ltd 24,supplier24@example.com,7201870401,"42/69, Chahal Nagar
+Mau-007176",India,INR,MEDIUM,31,True,2026-11-10T05:15:24.350952
+SUP-000025,SUPP-0025,Shan LLC 25,supplier25@example.com,+916522994374,"H.No. 72, Bakshi
+Mirzapur-021910",India,INR,LOW,13,True,2026-11-10T05:15:24.350952
+SUP-000026,SUPP-0026,Korpal Group 26,supplier26@example.com,2370099578,"422, Soni, Ramagundam 212901",India,INR,MEDIUM,43,True,2026-11-10T05:15:24.350952
+SUP-000027,SUPP-0027,Arya-Dubey 27,supplier27@example.com,2147163096,"34/872, Konda Marg
+Rourkela-076108",India,INR,LOW,19,True,2026-11-10T05:15:24.350952
+SUP-000028,SUPP-0028,"Sani, Kurian and Gupta 28",supplier28@example.com,05220106867,"51/68
+Amble Street
+Saharanpur 997003",India,INR,HIGH,86,True,2026-11-10T05:15:24.350952
+SUP-000029,SUPP-0029,"Bhagat, Kumar and Rai 29",supplier29@example.com,09627656119,"99/771
+Puri Ganj
+Rohtak-369271",India,INR,LOW,12,True,2026-11-10T05:15:24.350952
+SUP-000030,SUPP-0030,"Khare, Suresh and Sethi 30",supplier30@example.com,+919470679886,"H.No. 02, Dar Circle, Karawal Nagar-753763",India,INR,LOW,16,True,2026-11-10T05:15:24.350952
+SUP-000031,SUPP-0031,Rajan-Varughese 31,supplier31@example.com,+914089881394,"98/555, Ramakrishnan
+Kurnool 386886",India,INR,LOW,14,True,2026-11-10T05:15:24.350952
+SUP-000032,SUPP-0032,Gera Inc 32,supplier32@example.com,+912628731443,"09/523, Doshi Marg, Bathinda 638273",India,INR,LOW,20,True,2026-11-10T05:15:24.350952
+SUP-000033,SUPP-0033,Wagle and Sons 33,supplier33@example.com,+919735878082,"60/409
+Bumb Nagar
+Guntur 290267",India,INR,MEDIUM,63,True,2026-11-10T05:15:24.350952
+SUP-000034,SUPP-0034,"Talwar, Bhasin and Natarajan 34",supplier34@example.com,8981273189,"20/23, Khatri Path
+Meerut 067322",India,INR,MEDIUM,62,True,2026-11-10T05:15:24.350952
+SUP-000035,SUPP-0035,"Bhalla, Sinha and Gera 35",supplier35@example.com,9443342378,"080
+Iyer Road, Nashik 537329",India,INR,MEDIUM,40,True,2026-11-10T05:15:24.350952
+SUP-000036,SUPP-0036,Korpal LLC 36,supplier36@example.com,+912172955324,"H.No. 349
+Nazareth Street, Thiruvananthapuram-930504",India,INR,LOW,18,True,2026-11-10T05:15:24.350952
+SUP-000037,SUPP-0037,Suri-Trivedi 37,supplier37@example.com,02856794773,"057
+Naik Road
+Sultan Pur Majra-171676",India,INR,LOW,11,True,2026-11-10T05:15:24.350952
+SUP-000038,SUPP-0038,Dayal LLC 38,supplier38@example.com,4045565625,"43/422, Mukhopadhyay Ganj, Surendranagar Dudhrej 038776",India,INR,LOW,25,True,2026-11-10T05:15:24.350952
+SUP-000039,SUPP-0039,Sangha Group 39,supplier39@example.com,06248016103,"79/43
+Bera Street, Ongole-605232",India,INR,MEDIUM,43,True,2026-11-10T05:15:24.350952
+SUP-000040,SUPP-0040,Banerjee and Sons 40,supplier40@example.com,+916822257083,"117, Ramesh Ganj, Haldia-203887",India,INR,MEDIUM,53,True,2026-11-10T05:15:24.350952
+SUP-000041,SUPP-0041,Chana LLC 41,supplier41@example.com,08916318623,"H.No. 51, Shetty Ganj, Orai-112813",India,INR,LOW,14,True,2026-11-10T05:15:24.350952
+SUP-000042,SUPP-0042,"Sharaf, Dave and Rana 42",supplier42@example.com,6583076481,"17/10, Vasa, Shivpuri 809564",India,INR,LOW,15,True,2026-11-10T05:15:24.350952
+SUP-000043,SUPP-0043,Peri-Ghosh 43,supplier43@example.com,1726239185,"340
+Yadav Road, Patiala 961024",India,INR,HIGH,96,True,2026-11-10T05:15:24.350952
+SUP-000044,SUPP-0044,Chand LLC 44,supplier44@example.com,03423449229,"36/830, Nazareth Nagar, Kumbakonam-954922",India,INR,LOW,25,True,2026-11-10T05:15:24.350952
+SUP-000045,SUPP-0045,Deol-Munshi 45,supplier45@example.com,3724551810,"73/18
+Om
+Hazaribagh-586481",India,INR,HIGH,90,True,2026-11-10T05:15:24.350952
+SUP-000046,SUPP-0046,Basak LLC 46,supplier46@example.com,+917494556529,"H.No. 72
+Kurian Street
+Lucknow-089400",India,INR,LOW,9,True,2026-11-10T05:15:24.350952
+SUP-000047,SUPP-0047,Vaidya-Mane 47,supplier47@example.com,02184606248,"H.No. 350, Toor Ganj
+Rohtak 857668",India,INR,LOW,20,True,2026-11-10T05:15:24.350952
+SUP-000048,SUPP-0048,Sarna PLC 48,supplier48@example.com,+916542997714,"35/513, Suri Ganj, Bettiah 164390",India,INR,LOW,4,True,2026-11-10T05:15:24.350952
+SUP-000049,SUPP-0049,"Garg, Kapoor and Krishna 49",supplier49@example.com,05064065065,"36
+Yogi Road
+Bhimavaram-288673",India,INR,MEDIUM,61,True,2026-11-10T05:15:24.350952
+SUP-000050,SUPP-0050,Chanda-Randhawa 50,supplier50@example.com,1148625669,"88
+Devan Road
+Varanasi 022696",India,INR,LOW,12,True,2026-11-10T05:15:24.350952
+SUP-000051,SUPP-0051,Hayer-Sami 51,supplier51@example.com,+916777342368,"85/87
+Narasimhan Street, Gandhidham 662558",India,INR,LOW,17,True,2026-11-10T05:15:24.350952
+SUP-000052,SUPP-0052,Venkataraman and Sons 52,supplier52@example.com,03295065123,"H.No. 656
+Pall Street
+Shimla 057158",India,INR,LOW,17,True,2026-11-10T05:15:24.350952
+SUP-000053,SUPP-0053,"Talwar, Dash and Doshi 53",supplier53@example.com,+918578826587,"H.No. 882
+Kade, Nashik 219374",India,INR,LOW,23,True,2026-11-10T05:15:24.350952
+SUP-000054,SUPP-0054,Natarajan-Salvi 54,supplier54@example.com,4672420891,"H.No. 67
+Tank Zila, Solapur-119419",India,INR,HIGH,70,True,2026-11-10T05:15:24.350952
+SUP-000055,SUPP-0055,"Tella, Rana and Wali 55",supplier55@example.com,07983868579,"H.No. 38
+Dara Street
+Morbi-835587",India,INR,HIGH,68,True,2026-11-10T05:15:24.350952
+SUP-000056,SUPP-0056,Zachariah-Batra 56,supplier56@example.com,06193175005,"34
+Pai Street, Morena-671514",India,INR,MEDIUM,50,True,2026-11-10T05:15:24.350952
+SUP-000057,SUPP-0057,Bajwa Inc 57,supplier57@example.com,+915388136364,"41/447
+Mani Ganj
+Bokaro 997651",India,INR,LOW,8,True,2026-11-10T05:15:24.350952
+SUP-000058,SUPP-0058,Kota and Sons 58,supplier58@example.com,0785857319,"36
+Murty Street
+Dindigul-615502",India,INR,LOW,18,True,2026-11-10T05:15:24.350952
+SUP-000059,SUPP-0059,Nadig LLC 59,supplier59@example.com,01724044481,"93/549
+Balay Zila
+Unnao 073866",India,INR,LOW,17,True,2026-11-10T05:15:24.350952
+SUP-000060,SUPP-0060,Varkey-Chana 60,supplier60@example.com,4661916338,"35/65
+Chawla Road, Bilaspur 810336",India,INR,LOW,9,True,2026-11-10T05:15:24.350952
+SUP-000061,SUPP-0061,Parikh-Nath 61,supplier61@example.com,01586065342,"323
+Grover Zila
+Madhyamgram 119674",India,INR,MEDIUM,39,True,2026-11-10T05:15:24.350952
+SUP-000062,SUPP-0062,Lal LLC 62,supplier62@example.com,+911747938787,"H.No. 600, Nagi Circle, Tenali 821610",India,INR,MEDIUM,42,True,2026-11-10T05:15:24.350952
+SUP-000063,SUPP-0063,Luthra LLC 63,supplier63@example.com,05753200507,"756
+Kuruvilla Zila, Mathura 954132",India,INR,LOW,27,True,2026-11-10T05:15:24.350952
+SUP-000064,SUPP-0064,Dhar-Peri 64,supplier64@example.com,4782347417,"203, Loyal Road, Ghaziabad-704952",India,INR,LOW,30,True,2026-11-10T05:15:24.350952
+SUP-000065,SUPP-0065,Kumar PLC 65,supplier65@example.com,+912205099477,"H.No. 341
+Kuruvilla Zila
+Kozhikode 402485",India,INR,LOW,21,True,2026-11-10T05:15:24.350952
+SUP-000066,SUPP-0066,"Aurora, Bali and Solanki 66",supplier66@example.com,+916214313234,"23/883, Devi Street, Latur-511038",India,INR,LOW,15,True,2026-11-10T05:15:24.350952
+SUP-000067,SUPP-0067,"Venkataraman, Natarajan and Solanki 67",supplier67@example.com,00806205962,"H.No. 52
+Varghese Marg, Gandhidham-926327",India,INR,LOW,6,True,2026-11-10T05:15:24.350952
+SUP-000068,SUPP-0068,Mukherjee-Shetty 68,supplier68@example.com,08576952279,"47/370, Batra Path
+Hindupur-261718",India,INR,LOW,19,True,2026-11-10T05:15:24.350952
+SUP-000069,SUPP-0069,"Chand, Wable and Kapadia 69",supplier69@example.com,08007448643,"H.No. 86
+Shanker Path
+Dhule 699648",India,INR,MEDIUM,62,True,2026-11-10T05:15:24.350952
+SUP-000070,SUPP-0070,"Peri, Sule and Deshpande 70",supplier70@example.com,4965835206,"28/393
+Amble Zila
+Ranchi 188983",India,INR,LOW,25,True,2026-11-10T05:15:24.350952
+SUP-000071,SUPP-0071,Ganguly-Sethi 71,supplier71@example.com,+910329689335,"62/64, Modi Road, Ozhukarai 203885",India,INR,HIGH,66,True,2026-11-10T05:15:24.350952
+SUP-000072,SUPP-0072,Bobal Inc 72,supplier72@example.com,05061118101,"81/12, Choudhury Nagar
+Machilipatnam 628949",India,INR,LOW,21,True,2026-11-10T05:15:24.350952
+SUP-000073,SUPP-0073,"Bhandari, Setty and Rana 73",supplier73@example.com,+919727479157,"60, Bandi Chowk, Anand-242670",India,INR,LOW,3,True,2026-11-10T05:15:24.350952
+SUP-000074,SUPP-0074,"Mand, Sule and Batta 74",supplier74@example.com,08784278741,"22/13, Kannan Road
+Kishanganj-886545",India,INR,LOW,19,True,2026-11-10T05:15:24.350952
+SUP-000075,SUPP-0075,Kothari-Dada 75,supplier75@example.com,05127899598,"H.No. 62
+Khosla Zila
+Bhubaneswar-199788",India,INR,LOW,1,True,2026-11-10T05:15:24.350952
+SUP-000076,SUPP-0076,Atwal-Sharaf 76,supplier76@example.com,+918869068998,"H.No. 735, Sarna Chowk
+Amroha 206453",India,INR,LOW,9,True,2026-11-10T05:15:24.350952
+SUP-000077,SUPP-0077,Mitter-Vaidya 77,supplier77@example.com,2163853152,"305, Maharaj Street, Panchkula-710704",India,INR,HIGH,89,True,2026-11-10T05:15:24.350952
+SUP-000078,SUPP-0078,Hari and Sons 78,supplier78@example.com,1708446833,"95/80, Vyas Zila, Hosur 126718",India,INR,LOW,27,True,2026-11-10T05:15:24.350952
+SUP-000079,SUPP-0079,"Bhat, Gara and Rastogi 79",supplier79@example.com,08909979126,"571
+Dugal Zila
+Ramagundam 578549",India,INR,LOW,14,True,2026-11-10T05:15:24.350952
+SUP-000080,SUPP-0080,Subramanian-Raju 80,supplier80@example.com,+913827102392,"36, Varughese Marg
+Khora -087373",India,INR,LOW,11,True,2026-11-10T05:15:24.350952
+SUP-000081,SUPP-0081,Arora-Ramesh 81,supplier81@example.com,8653270539,"83/448, Hegde Path, Danapur 621813",India,INR,LOW,11,True,2026-11-10T05:15:24.350952
+SUP-000082,SUPP-0082,Majumdar PLC 82,supplier82@example.com,05367361864,"20, Kale Marg, Loni 767516",India,INR,LOW,4,True,2026-11-10T05:15:24.350952
+SUP-000083,SUPP-0083,Das-Manda 83,supplier83@example.com,05881733835,"H.No. 789
+Garde
+Bhusawal-507739",India,INR,LOW,21,True,2026-11-10T05:15:24.350952
+SUP-000084,SUPP-0084,Sinha Ltd 84,supplier84@example.com,3647385441,"09/486, Dugal Zila, Gopalpur 320154",India,INR,LOW,19,True,2026-11-10T05:15:24.350952
+SUP-000085,SUPP-0085,Mammen-Saxena 85,supplier85@example.com,0460126567,"35/72, Lal Circle, Morbi 306493",India,INR,LOW,25,True,2026-11-10T05:15:24.350952
+SUP-000086,SUPP-0086,"Thaker, Ahluwalia and Salvi 86",supplier86@example.com,+912761818066,"H.No. 64
+Hegde Marg
+Muzaffarpur-880540",India,INR,LOW,12,True,2026-11-10T05:15:24.350952
+SUP-000087,SUPP-0087,"Jaggi, Oommen and Sridhar 87",supplier87@example.com,09696336464,"H.No. 90, Buch Road, Karimnagar 425081",India,INR,LOW,22,True,2026-11-10T05:15:24.350952
+SUP-000088,SUPP-0088,Morar and Sons 88,supplier88@example.com,+913674678629,"H.No. 03, Bains Street, Tezpur 019239",India,INR,MEDIUM,60,True,2026-11-10T05:15:24.350952
+SUP-000089,SUPP-0089,"Loke, Sarkar and Dutta 89",supplier89@example.com,0691196118,"19/16, Narang Zila
+Thrissur 896752",India,INR,MEDIUM,31,True,2026-11-10T05:15:24.350952
+SUP-000090,SUPP-0090,Dalal-Krish 90,supplier90@example.com,01112445889,"H.No. 55, Krishnan Marg, Kalyan-Dombivli-697809",India,INR,MEDIUM,34,True,2026-11-10T05:15:24.350952
+SUP-000091,SUPP-0091,Kakar Ltd 91,supplier91@example.com,05666594245,"81/390
+Tank Road
+Nagpur 235515",India,INR,HIGH,76,True,2026-11-10T05:15:24.350952
+SUP-000092,SUPP-0092,Tiwari Group 92,supplier92@example.com,+914090399155,"H.No. 530, Hayer Road, Jodhpur-288582",India,INR,LOW,25,True,2026-11-10T05:15:24.350952
+SUP-000093,SUPP-0093,Pandya-Khosla 93,supplier93@example.com,3367092164,"06/031
+Dube Path, Adoni 863002",India,INR,MEDIUM,63,True,2026-11-10T05:15:24.350952
+SUP-000094,SUPP-0094,"Mukhopadhyay, Menon and Brar 94",supplier94@example.com,06524203131,"H.No. 460, Khatri Zila
+Ambattur-797809",India,INR,LOW,5,True,2026-11-10T05:15:24.350952
+SUP-000095,SUPP-0095,Purohit Ltd 95,supplier95@example.com,+918866214731,"H.No. 669
+Mangat Marg, Jammu 454961",India,INR,LOW,27,True,2026-11-10T05:15:24.350952
+SUP-000096,SUPP-0096,Prakash-Loke 96,supplier96@example.com,+911910099399,"58/92
+Sama Street, Shivpuri-575509",India,INR,MEDIUM,41,True,2026-11-10T05:15:24.350952
+SUP-000097,SUPP-0097,Mohanty and Sons 97,supplier97@example.com,+910150802180,"H.No. 28
+Baria Marg, Raichur-339664",India,INR,HIGH,73,True,2026-11-10T05:15:24.350952
+SUP-000098,SUPP-0098,Bir Ltd 98,supplier98@example.com,06041506071,"12/82, Singh Road, Gurgaon 032983",India,INR,LOW,1,True,2026-11-10T05:15:24.350952
+SUP-000099,SUPP-0099,Wason-Lata 99,supplier99@example.com,+917077063866,"59/08, Kalla Path, Noida 368892",India,INR,LOW,9,True,2026-11-10T05:15:24.350952
+SUP-000100,SUPP-0100,"Upadhyay, Bajwa and Magar 100",supplier100@example.com,+912529715242,"006, Grewal Zila
+Proddatur-911901",India,INR,MEDIUM,36,True,2026-11-10T05:15:24.350952
+SUP-000101,SUPP-0101,Zacharia Inc 101,supplier101@example.com,7619349475,"28/641, Bumb, Raiganj 787459",India,INR,LOW,30,True,2026-11-10T05:15:24.350952
+SUP-000102,SUPP-0102,Gopal Inc 102,supplier102@example.com,+913295285115,"H.No. 23, Bala Marg
+Chennai 081020",India,INR,MEDIUM,55,True,2026-11-10T05:15:24.350952
+SUP-000103,SUPP-0103,Parsa-Majumdar 103,supplier103@example.com,+919897841768,"75/97
+Gola, Kolhapur 584153",India,INR,MEDIUM,39,True,2026-11-10T05:15:24.350952
+SUP-000104,SUPP-0104,"Bera, Gopal and Kulkarni 104",supplier104@example.com,0884060613,"13/802
+Krish Nagar, Guntur-952634",India,INR,LOW,18,True,2026-11-10T05:15:24.350952
+SUP-000105,SUPP-0105,"Solanki, Dave and Bhargava 105",supplier105@example.com,4417973809,"H.No. 453, Merchant Road, Ballia 932948",India,INR,LOW,25,True,2026-11-10T05:15:24.350952
+SUP-000106,SUPP-0106,Shankar-Wadhwa 106,supplier106@example.com,02290641214,"00, Madan Circle
+Kanpur 527241",India,INR,LOW,28,True,2026-11-10T05:15:24.350952
+SUP-000107,SUPP-0107,Bawa LLC 107,supplier107@example.com,+914364554585,"32/43, Sane Road
+Durg 876546",India,INR,HIGH,81,True,2026-11-10T05:15:24.350952
+SUP-000108,SUPP-0108,Tank-Kar 108,supplier108@example.com,02218948299,"660, Kurian Chowk
+Madanapalle-240454",India,INR,HIGH,71,True,2026-11-10T05:15:24.350952
+SUP-000109,SUPP-0109,Sachdeva-Bal 109,supplier109@example.com,06772104535,"62
+Din Circle, Amroha-846672",India,INR,LOW,6,True,2026-11-10T05:15:24.350952
+SUP-000110,SUPP-0110,Bal and Sons 110,supplier110@example.com,1754572548,"H.No. 885
+Menon, Aurangabad 436564",India,INR,LOW,12,True,2026-11-10T05:15:24.350952
+SUP-000111,SUPP-0111,Bhatia-Kaul 111,supplier111@example.com,09478088144,"H.No. 965
+Babu Road
+Allahabad 649929",India,INR,LOW,29,True,2026-11-10T05:15:24.350952
+SUP-000112,SUPP-0112,"Walia, Kaul and Chatterjee 112",supplier112@example.com,6930282568,"H.No. 551
+Khosla Nagar, Shahjahanpur-538814",India,INR,LOW,9,True,2026-11-10T05:15:24.350952
+SUP-000113,SUPP-0113,Rajan LLC 113,supplier113@example.com,1660757297,"04/854
+Dalal Path
+Rourkela 106693",India,INR,MEDIUM,48,True,2026-11-10T05:15:24.350952
+SUP-000114,SUPP-0114,"Ramachandran, Subramanian and Ramaswamy 114",supplier114@example.com,+914265970284,"H.No. 50
+Edwin Nagar
+Anantapuram-599876",India,INR,LOW,30,True,2026-11-10T05:15:24.350952
+SUP-000115,SUPP-0115,"Nagy, Anne and Mangal 115",supplier115@example.com,5465729114,"65/917, Sharma, Raichur-343625",India,INR,LOW,10,True,2026-11-10T05:15:24.350952
+SUP-000116,SUPP-0116,Mohanty-Palan 116,supplier116@example.com,6921526143,"H.No. 39
+Mohan Marg
+Rampur-447133",India,INR,LOW,28,True,2026-11-10T05:15:24.350952
+SUP-000117,SUPP-0117,Khanna LLC 117,supplier117@example.com,03031580010,"81/749
+Goswami Chowk
+Kurnool 488592",India,INR,LOW,6,True,2026-11-10T05:15:24.350952
+SUP-000118,SUPP-0118,Kapoor LLC 118,supplier118@example.com,06556382833,"H.No. 009
+Sur Chowk, Saharanpur-324775",India,INR,LOW,4,True,2026-11-10T05:15:24.350952
+SUP-000119,SUPP-0119,Wali Group 119,supplier119@example.com,8392559340,"223
+Sura Ganj
+Katihar 182175",India,INR,LOW,28,True,2026-11-10T05:15:24.350952
+SUP-000120,SUPP-0120,Morar PLC 120,supplier120@example.com,06262566480,"H.No. 20
+Sangha Ganj
+Varanasi-953782",India,INR,MEDIUM,51,True,2026-11-10T05:15:24.350952

@@ -1,0 +1,25 @@
+﻿{% extends "base.html" %}
+{% block title %}Dashboard | ProcureFlow AI{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">OVERVIEW</div><h1>Procurement Dashboard</h1><p>Live procurement activity from your database.</p></div><a class="primary-button" href="/requests">View requests →</a></div>
+<div class="welcome-banner"><div><div class="welcome-tag">PROCUREMENT INTELLIGENCE</div><h2>Welcome to ProcureFlow AI 👋</h2><p>Your procurement workflow and monitoring workspace.</p></div><div class="banner-art"><div class="art-circle">✦</div><div class="art-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+<div class="section-heading"><div><h2>Live database metrics</h2><p>Actual record counts</p></div><span class="period-label">2026 DATASET</span></div>
+<div class="metric-grid">
+{% for label,value,ico,colour in [('Purchase requests',stats.requests,'▤','blue'),('Approved requests',stats.approved,'✓','green'),('Purchase orders',stats.orders,'▣','purple'),('Suppliers',stats.suppliers,'♧','orange')] %}
+<div class="metric-card"><div class="metric-top"><span>{{ label }}</span><span class="metric-icon {{ colour }}">{{ ico }}</span></div><div class="metric-value">{{ "{:,}".format(value) }}</div><div class="metric-foot"><span class="metric-note">Live database records</span></div></div>
+{% endfor %}
+</div>
+<div class="content-grid">
+<div class="panel"><div class="panel-heading"><div><h2>Dataset overview</h2><p>Records currently stored</p></div></div>
+<div class="workflow">
+{% for label,value in [('Departments',stats.departments),('Requesters',stats.requesters),('RFQs',stats.rfqs),('Supplier quotations',stats.quotes),('Deliveries',stats.deliveries),('Audit events',stats.audit_events)] %}
+<div class="workflow-step"><div class="workflow-symbol blue">▤</div><div class="workflow-info"><strong>{{ label }}</strong><small>Database records</small></div><b>{{ "{:,}".format(value) }}</b></div>
+{% endfor %}
+</div></div>
+<div class="panel"><div class="panel-heading"><div><h2>Exception monitoring</h2><p>Ground-truth anomaly records</p></div><span class="alert-count">{{ stats.anomalies }} cases</span></div>
+<p style="color:#8994a6;line-height:1.8;font-size:11px">ProcureFlow tracks approval exceptions, expired quotations, supplier selection issues, inactive suppliers, budget overruns, duplicate requests and currency mismatches.</p><a class="text-link" href="/anomalies">Inspect anomaly register →</a></div>
+</div>
+<div class="panel table-panel"><div class="panel-heading"><div><h2>Recent purchase requests</h2><p>Latest records from your database</p></div><a class="text-link" href="/requests">View all →</a></div><div class="table-wrap"><table><thead><tr><th>REQUEST ID</th><th>CATEGORY</th><th>ESTIMATED COST</th><th>DATE</th><th>STATUS</th></tr></thead><tbody>
+{% for r in recent %}<tr><td>{{ r.id }}</td><td>{{ r.category }}</td><td>{{ r.currency if r.currency else 'INR' }} {{ "{:,.2f}".format(r.estimated_cost or 0) }}</td><td>{{ r.request_date }}</td><td><span class="status status-blue">{{ r.status }}</span></td></tr>{% else %}<tr><td colspan="5">No requests found.</td></tr>{% endfor %}
+</tbody></table></div></div>
+{% endblock %}

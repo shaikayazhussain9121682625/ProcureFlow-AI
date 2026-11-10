@@ -1,0 +1,7 @@
+﻿{% extends "base.html" %}
+{% block title %}Deliveries | ProcureFlow AI{% endblock %}
+{% block breadcrumb %}Deliveries{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">FULFILLMENT</div><h1>Delivery Tracking</h1><p>Track expected and received quantities against purchase orders.</p></div><span class="primary-button">{{ total }} delivery records</span></div>
+<div class="panel table-panel"><div class="panel-heading"><div><h2>Delivery register</h2><p>Latest 100 delivery records</p></div></div><div class="table-wrap"><table><thead><tr><th>DELIVERY ID</th><th>PO ID</th><th>DELIVERY DATE</th><th>EXPECTED DATE</th><th>ORDER QTY</th><th>RECEIVED QTY</th><th>STATUS</th><th>NOTES</th></tr></thead><tbody>{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.po_id }}</td><td>{{ r.delivery_date }}</td><td>{{ r.expected_date }}</td><td>{{ r.item_quantity }}</td><td>{{ r.received_quantity }}</td><td>{{ r.status }}</td><td>{{ r.notes or '—' }}</td></tr>{% else %}<tr><td colspan="8">No deliveries found.</td></tr>{% endfor %}</tbody></table></div></div>
+{% endblock %}

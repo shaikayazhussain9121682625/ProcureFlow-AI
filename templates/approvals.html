@@ -1,0 +1,9 @@
+﻿{% extends "base.html" %}
+{% block title %}Approvals | ProcureFlow AI{% endblock %}
+{% block breadcrumb %}Approvals{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">CONTROL CENTER</div><h1>Approval Management</h1><p>Approval decisions recorded in the database.</p></div><span class="primary-button">{{ total }} approval records</span></div>
+<div class="panel table-panel"><div class="panel-heading"><div><h2>Approval register</h2><p>Latest 100 approval records</p></div></div><div class="table-wrap"><table><thead><tr><th>APPROVAL ID</th><th>REQUEST ID</th><th>APPROVER</th><th>ROLE</th><th>LEVEL</th><th>DECISION</th><th>DATE</th></tr></thead><tbody>
+{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.request_id }}</td><td>{{ r.approver_name }}</td><td>{{ r.approver_role }}</td><td>{{ r.approval_level }}</td><td><span class="status status-green">{{ r.decision }}</span></td><td>{{ r.decided_at }}</td></tr>{% else %}<tr><td colspan="7">No approval records found.</td></tr>{% endfor %}
+</tbody></table></div><div class="table-note">Showing up to 100 of {{ total }} approval records.</div></div>
+{% endblock %}

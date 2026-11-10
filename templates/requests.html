@@ -1,0 +1,9 @@
+﻿{% extends "base.html" %}
+{% block title %}Purchase Requests | ProcureFlow AI{% endblock %}
+{% block breadcrumb %}Purchase Requests{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">PROCUREMENT</div><h1>Purchase Requests</h1><p>Live purchase request register.</p></div><span class="primary-button">{{ total }} total requests</span></div>
+<div class="panel table-panel"><div class="panel-heading"><div><h2>Request register</h2><p>Latest 100 database records</p></div></div><div class="table-wrap"><table><thead><tr><th>REQUEST ID</th><th>DEPARTMENT</th><th>CATEGORY</th><th>ESTIMATED COST</th><th>DATE</th><th>STATUS</th></tr></thead><tbody>
+{% for r in records %}<tr><td>{{ r.id }}</td><td>{{ r.department_id }}</td><td>{{ r.category }}</td><td>{{ r.currency }} {{ "{:,.2f}".format(r.estimated_cost or 0) }}</td><td>{{ r.request_date }}</td><td><span class="status status-blue">{{ r.status }}</span></td></tr>{% else %}<tr><td colspan="6">No requests found.</td></tr>{% endfor %}
+</tbody></table></div><div class="table-note">Showing up to 100 of {{ total }} purchase requests.</div></div>
+{% endblock %}

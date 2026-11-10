@@ -1,0 +1,72 @@
+[
+  {
+    "id": "DEP-001",
+    "name": "Engineering",
+    "code": "DEPT-001",
+    "manager_name": "Barkha Gera",
+    "is_active": true
+  },
+  {
+    "id": "DEP-002",
+    "name": "Human Resources",
+    "code": "DEPT-002",
+    "manager_name": "Wyatt Karpe",
+    "is_active": true
+  },
+  {
+    "id": "DEP-003",
+    "name": "Finance",
+    "code": "DEPT-003",
+    "manager_name": "Aarnav Deep",
+    "is_active": true
+  },
+  {
+    "id": "DEP-004",
+    "name": "Marketing",
+    "code": "DEPT-004",
+    "manager_name": "Rushil Hari",
+    "is_active": true
+  },
+  {
+    "id": "DEP-005",
+    "name": "Operations",
+    "code": "DEPT-005",
+    "manager_name": "Hredhaan Hari",
+    "is_active": true
+  },
+  {
+    "id": "DEP-006",
+    "name": "Sales",
+    "code": "DEPT-006",
+    "manager_name": "Yashoda D’Alia",
+    "is_active": true
+  },
+  {
+    "id": "DEP-007",
+    "name": "IT",
+    "code": "DEPT-007",
+    "manager_name": "Shravya Ahluwalia",
+    "is_active": true
+  },
+  {
+    "id": "DEP-008",
+    "name": "Administration",
+    "code": "DEPT-008",
+    "manager_name": "Jhalak Dhaliwal",
+    "is_active": true
+  },
+  {
+    "id": "DEP-009",
+    "name": "Procurement",
+    "code": "DEPT-009",
+    "manager_name": "Vaishnavi Bhandari",
+    "is_active": true
+  },
+  {
+    "id": "DEP-010",
+    "name": "Legal",
+    "code": "DEPT-010",
+    "manager_name": "Manbir Din",
+    "is_active": true
+  }
+]
